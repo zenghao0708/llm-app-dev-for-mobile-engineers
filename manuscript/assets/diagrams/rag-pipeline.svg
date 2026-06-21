@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2600" height="1500" viewBox="0 0 2600 1500">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .stage { fill: #ffffff; stroke: #c7d3df; stroke-width: 3; rx: 24; }
+      .store { fill: #edf8f5; stroke: #7fb8a2; stroke-width: 3; rx: 24; }
+      .model { fill: #edf5fb; stroke: #6fb3d3; stroke-width: 3; rx: 24; }
+      .title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 60px; font-weight: 700; fill: #142033; }
+      .label { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 34px; font-weight: 700; fill: #142033; }
+      .small { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 24px; fill: #526173; }
+      .arrow { stroke: #2f80a7; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #7d8a99; stroke-width: 4; stroke-dasharray: 12 10; fill: none; marker-end: url(#arrow2); }
+    </style>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="18" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L18,9 L0,18 z" fill="#2f80a7"/>
+    </marker>
+    <marker id="arrow2" markerWidth="16" markerHeight="16" refX="16" refY="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L16,8 L0,16 z" fill="#7d8a99"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="2600" height="1500"/>
+  <text x="130" y="140" class="title">RAG 检索增强生成管线</text>
+  <text x="130" y="190" class="small">先检索可信资料，再让模型基于上下文回答，并返回引用来源</text>
+
+  <text x="130" y="310" class="label">离线索引阶段</text>
+  <rect x="130" y="370" width="260" height="150" class="stage"/>
+  <text x="260" y="435" text-anchor="middle" class="label">文档</text>
+  <text x="260" y="480" text-anchor="middle" class="small">PDF / MD / Web</text>
+
+  <rect x="520" y="370" width="260" height="150" class="stage"/>
+  <text x="650" y="435" text-anchor="middle" class="label">切分</text>
+  <text x="650" y="480" text-anchor="middle" class="small">Chunk + 元数据</text>
+
+  <rect x="910" y="370" width="300" height="150" class="model"/>
+  <text x="1060" y="435" text-anchor="middle" class="label">Embedding</text>
+  <text x="1060" y="480" text-anchor="middle" class="small">文本转向量</text>
+
+  <rect x="1340" y="360" width="310" height="170" class="store"/>
+  <text x="1495" y="432" text-anchor="middle" class="label">向量库</text>
+  <text x="1495" y="480" text-anchor="middle" class="small">向量 + 原文 + 来源</text>
+
+  <path class="arrow" d="M390 445 L520 445"/>
+  <path class="arrow" d="M780 445 L910 445"/>
+  <path class="arrow" d="M1210 445 L1340 445"/>
+
+  <text x="130" y="760" class="label">在线问答阶段</text>
+  <rect x="130" y="820" width="260" height="150" class="stage"/>
+  <text x="260" y="885" text-anchor="middle" class="label">用户问题</text>
+  <text x="260" y="930" text-anchor="middle" class="small">自然语言查询</text>
+
+  <rect x="520" y="820" width="300" height="150" class="model"/>
+  <text x="670" y="885" text-anchor="middle" class="label">查询向量</text>
+  <text x="670" y="930" text-anchor="middle" class="small">Embedding</text>
+
+  <rect x="960" y="820" width="300" height="150" class="store"/>
+  <text x="1110" y="885" text-anchor="middle" class="label">召回片段</text>
+  <text x="1110" y="930" text-anchor="middle" class="small">Top-K Context</text>
+
+  <rect x="1400" y="800" width="320" height="190" class="model"/>
+  <text x="1560" y="880" text-anchor="middle" class="label">生成回答</text>
+  <text x="1560" y="930" text-anchor="middle" class="small">LLM + Prompt</text>
+
+  <rect x="1860" y="800" width="360" height="190" class="stage"/>
+  <text x="2040" y="880" text-anchor="middle" class="label">答案与引用</text>
+  <text x="2040" y="930" text-anchor="middle" class="small">可追溯来源</text>
+
+  <path class="arrow" d="M390 895 L520 895"/>
+  <path class="arrow" d="M820 895 L960 895"/>
+  <path class="arrow" d="M1260 895 L1400 895"/>
+  <path class="arrow" d="M1720 895 L1860 895"/>
+  <path class="dash" d="M1495 530 C1495 670 1110 670 1110 820"/>
+
+  <text x="130" y="1340" class="small">图 8-1 RAG 从文档索引到在线问答的完整流程</text>
+</svg>

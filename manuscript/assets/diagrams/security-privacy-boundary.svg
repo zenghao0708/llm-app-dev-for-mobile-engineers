@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1000" viewBox="0 0 1800 1000">
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#2f86b7"/>
+    </marker>
+    <style>
+      .bg { fill: #f7fafc; }
+      .title { font: 700 44px sans-serif; fill: #132033; }
+      .subtitle { font: 500 20px sans-serif; fill: #5c6b7a; }
+      .box { fill: #ffffff; stroke: #c8d4df; stroke-width: 2.5; rx: 14; }
+      .box-blue { fill: #e8f5fb; stroke: #64b5df; stroke-width: 2.5; rx: 14; }
+      .box-green { fill: #edf8f2; stroke: #78bea1; stroke-width: 2.5; rx: 14; }
+      .box-red { fill: #fff0f0; stroke: #dd7b7b; stroke-width: 2.5; rx: 14; }
+      .label { font: 700 25px sans-serif; fill: #142033; text-anchor: middle; }
+      .text { font: 500 18px sans-serif; fill: #5d6b7c; text-anchor: middle; }
+      .small { font: 500 16px sans-serif; fill: #6d7b8c; text-anchor: middle; }
+      .arrow { stroke: #2f86b7; stroke-width: 5; fill: none; marker-end: url(#arrow-blue); }
+      .guard { stroke: #dd7b7b; stroke-width: 3; stroke-dasharray: 10 8; fill: none; }
+      .caption { font: 500 18px sans-serif; fill: #667386; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1800" height="1000"/>
+  <text x="80" y="95" class="title">移动端大模型应用的安全与隐私边界</text>
+  <text x="80" y="132" class="subtitle">敏感信息进入 Prompt、日志、模型或第三方服务前，应经过端侧与服务端的数据最小化、脱敏、权限和审计控制</text>
+
+  <rect class="box" x="90" y="250" width="260" height="135"/>
+  <text x="220" y="304" class="label">移动端 App</text>
+  <text x="220" y="340" class="text">输入 / 附件 / 反馈</text>
+
+  <rect class="box-red" x="470" y="225" width="300" height="185"/>
+  <text x="620" y="285" class="label">安全网关</text>
+  <text x="620" y="322" class="text">认证 / 限流 / 请求校验</text>
+  <text x="620" y="356" class="text">脱敏 / 审计 / 策略</text>
+
+  <rect class="box-blue" x="890" y="250" width="290" height="135"/>
+  <text x="1035" y="304" class="label">RAG 服务</text>
+  <text x="1035" y="340" class="text">检索 / Prompt / 引用</text>
+
+  <rect class="box-green" x="1300" y="250" width="300" height="135"/>
+  <text x="1450" y="304" class="label">模型网关</text>
+  <text x="1450" y="340" class="text">模型路由 / 密钥隔离</text>
+
+  <rect class="box" x="470" y="600" width="300" height="135"/>
+  <text x="620" y="654" class="label">知识库</text>
+  <text x="620" y="690" class="text">权限标签 / 元数据</text>
+
+  <rect class="box" x="890" y="600" width="290" height="135"/>
+  <text x="1035" y="654" class="label">审计日志</text>
+  <text x="1035" y="690" class="text">脱敏后记录</text>
+
+  <rect class="box" x="1300" y="600" width="300" height="135"/>
+  <text x="1450" y="654" class="label">人工确认</text>
+  <text x="1450" y="690" class="text">高风险动作放行</text>
+
+  <path class="arrow" d="M 350 318 L 470 318"/>
+  <path class="arrow" d="M 770 318 L 890 318"/>
+  <path class="arrow" d="M 1180 318 L 1300 318"/>
+  <path class="arrow" d="M 1035 385 L 1035 600"/>
+  <path class="arrow" d="M 770 668 L 890 668"/>
+  <path class="arrow" d="M 1180 668 L 1300 668"/>
+  <path class="arrow" d="M 620 600 L 620 410"/>
+
+  <rect class="guard" x="430" y="190" width="1210" height="600" rx="20"/>
+  <text x="1035" y="812" class="small">服务端边界：密钥、权限、脱敏、审计和高风险动作确认都应在这里完成</text>
+
+  <text x="90" y="930" class="caption">图 15-1 移动端大模型应用的安全与隐私边界</text>
+</svg>

@@ -1,0 +1,28 @@
+name: 示例代码问题
+description: 反馈配套工程无法运行、测试失败或代码讲解不一致
+title: "[code] "
+labels:
+  - code-example
+body:
+  - type: input
+    id: path
+    attributes:
+      label: 相关文件
+      placeholder: examples/mobile-knowledge-assistant/scripts/dev_environment_check.py
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 请贴出运行命令、环境信息和完整错误输出。
+      placeholder: |
+        cd examples/mobile-knowledge-assistant
+        PYTHONPATH=src python3 -m unittest discover -s tests
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望结果
+      description: 请说明你预期代码应该如何运行。

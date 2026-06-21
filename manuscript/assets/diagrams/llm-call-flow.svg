@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1350" viewBox="0 0 2400 1350">
+  <defs>
+    <style>
+      .bg { fill: #f7fafc; }
+      .card { fill: #ffffff; stroke: #c8d3df; stroke-width: 3; rx: 24; }
+      .accent { fill: #e7f4fb; stroke: #78b8d8; stroke-width: 3; rx: 24; }
+      .title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 58px; font-weight: 700; fill: #152235; }
+      .label { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 34px; font-weight: 600; fill: #172033; }
+      .small { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 24px; fill: #526173; }
+      .arrow { stroke: #2f80a7; stroke-width: 5; fill: none; }
+      .arrowHead { fill: #2f80a7; }
+      .tagBg { fill: #f7fafc; }
+    </style>
+  </defs>
+  <rect class="bg" width="2400" height="1350"/>
+  <text x="120" y="130" class="title">大模型应用调用流程</text>
+  <text x="120" y="180" class="small">从用户输入到业务系统响应，模型只是工程链路中的一个能力节点</text>
+
+  <rect x="120" y="430" width="260" height="180" class="card"/>
+  <text x="250" y="510" text-anchor="middle" class="label">用户</text>
+  <text x="250" y="555" text-anchor="middle" class="small">自然语言输入</text>
+
+  <rect x="520" y="410" width="300" height="220" class="card"/>
+  <text x="670" y="500" text-anchor="middle" class="label">服务端 API</text>
+  <text x="670" y="548" text-anchor="middle" class="small">权限 / 会话 / 业务规则</text>
+
+  <rect x="960" y="370" width="340" height="300" class="accent"/>
+  <text x="1130" y="480" text-anchor="middle" class="label">提示词构造器</text>
+  <text x="1130" y="530" text-anchor="middle" class="small">任务 + 上下文 + 约束</text>
+  <line x1="1020" y1="575" x2="1240" y2="575" stroke="#b3d9ea" stroke-width="3"/>
+  <text x="1130" y="620" text-anchor="middle" class="small">控制模型看到什么</text>
+
+  <rect x="1440" y="390" width="300" height="260" class="card"/>
+  <text x="1590" y="500" text-anchor="middle" class="label">LLM API</text>
+  <text x="1590" y="550" text-anchor="middle" class="small">生成 / 推理 / 工具选择</text>
+
+  <rect x="1880" y="410" width="320" height="220" class="card"/>
+  <text x="2040" y="500" text-anchor="middle" class="label">结果解析器</text>
+  <text x="2040" y="550" text-anchor="middle" class="small">校验 / 转换 / 兜底</text>
+
+  <rect x="960" y="870" width="340" height="200" class="card"/>
+  <text x="1130" y="955" text-anchor="middle" class="label">业务系统</text>
+  <text x="1130" y="1005" text-anchor="middle" class="small">数据库 / 工单 / 知识库</text>
+
+  <path class="arrow" d="M 380 520 L 502 520"/>
+  <polygon class="arrowHead" points="520,520 502,511 502,529"/>
+  <path class="arrow" d="M 820 520 L 942 520"/>
+  <polygon class="arrowHead" points="960,520 942,511 942,529"/>
+  <path class="arrow" d="M 1300 520 L 1422 520"/>
+  <polygon class="arrowHead" points="1440,520 1422,511 1422,529"/>
+  <path class="arrow" d="M 1740 520 L 1862 520"/>
+  <polygon class="arrowHead" points="1880,520 1862,511 1862,529"/>
+  <path class="arrow" d="M 2040 650 C 2040 790 1330 790 1200 852"/>
+  <polygon class="arrowHead" points="1200,870 1190,852 1210,852"/>
+  <rect x="1495" y="757" width="170" height="42" class="tagBg"/>
+  <text x="1580" y="795" text-anchor="middle" class="small">校验后写入</text>
+  <path class="arrow" d="M 960 970 C 720 970 670 760 670 648"/>
+  <polygon class="arrowHead" points="670,630 660,648 680,648"/>
+  <rect x="620" y="775" width="160" height="42" class="tagBg"/>
+  <text x="700" y="815" text-anchor="middle" class="small">事实与权限</text>
+
+  <text x="120" y="1210" class="small">图 1-1 大模型应用的典型调用链路</text>
+</svg>

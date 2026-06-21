@@ -1,0 +1,44 @@
+[
+  {
+    "id": "api_key_boundary",
+    "question": "移动端为什么不能直接保存模型 API Key？",
+    "expected_source": "mobile_ai_api.md",
+    "expected_section": "API Key 管理"
+  },
+  {
+    "id": "streaming_cancel",
+    "question": "移动端长回答应该怎么展示，用户离开页面时怎么办？",
+    "expected_source": "mobile_ai_api.md",
+    "expected_section": "流式输出"
+  },
+  {
+    "id": "privacy_permission",
+    "question": "相册和麦克风权限应该什么时候申请？",
+    "expected_source": "privacy_review.md",
+    "expected_section": "相册与麦克风权限"
+  },
+  {
+    "id": "data_minimization",
+    "question": "发送给大模型服务的上下文应该遵循什么原则？",
+    "expected_source": "privacy_review.md",
+    "expected_section": "数据最小化"
+  },
+  {
+    "id": "crash_log_redaction",
+    "question": "崩溃日志里有手机号、邮箱和设备标识符时应该怎么处理？",
+    "expected_source": "crash_analysis.md",
+    "expected_section": "安全要求"
+  },
+  {
+    "id": "crash_upload_personal_fields",
+    "question": "上传堆栈给模型前要删掉哪些个人相关字段？",
+    "expected_source": "crash_analysis.md",
+    "expected_section": "安全要求"
+  },
+  {
+    "id": "crash_output_structure",
+    "question": "崩溃分析助手应该输出哪些排查字段？",
+    "expected_source": "crash_analysis.md",
+    "expected_section": "输出结构"
+  }
+]

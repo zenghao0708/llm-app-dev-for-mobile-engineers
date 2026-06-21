@@ -1,0 +1,25 @@
+name: 图表与截图问题
+description: 反馈 SVG、截图、箭头、文字遮挡或高清渲染问题
+title: "[diagram] "
+labels:
+  - diagram
+body:
+  - type: input
+    id: asset
+    attributes:
+      label: 图表文件或图编号
+      placeholder: manuscript/assets/diagrams/development-environment.svg
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 问题描述
+      description: 请说明箭头、文字、线条、截图或清晰度问题。
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建议
+      description: 如果你有更合适的流程或布局，可以写在这里。

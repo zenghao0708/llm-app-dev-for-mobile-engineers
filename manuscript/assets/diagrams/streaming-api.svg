@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1350" viewBox="0 0 2400 1350">
+  <defs>
+    <style>
+      .bg { fill: #f8fafb; }
+      .panel { fill: #ffffff; stroke: #cad5df; stroke-width: 3; rx: 28; }
+      .chunk { fill: #e9f6fb; stroke: #72b6d7; stroke-width: 3; rx: 18; }
+      .full { fill: #eef8f2; stroke: #84b89c; stroke-width: 3; rx: 18; }
+      .title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 58px; font-weight: 700; fill: #142033; }
+      .label { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 36px; font-weight: 700; fill: #142033; }
+      .small { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 25px; fill: #526173; }
+      .arrow { stroke: #2f80a7; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+      .stream-arrow { stroke: #2f80a7; stroke-width: 4; fill: none; marker-end: url(#small-arrow); }
+    </style>
+    <marker id="arrow" markerWidth="22" markerHeight="22" refX="22" refY="11" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L22,11 L0,22 z" fill="#2f80a7"/>
+    </marker>
+    <marker id="small-arrow" markerWidth="16" markerHeight="16" refX="16" refY="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L16,8 L0,16 z" fill="#2f80a7"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="2400" height="1350"/>
+  <text x="120" y="130" class="title">同步调用与流式调用</text>
+  <text x="120" y="178" class="small">同步调用等待完整结果，流式调用持续返回片段以改善交互体验</text>
+
+  <rect x="150" y="300" width="960" height="680" class="panel"/>
+  <text x="630" y="390" text-anchor="middle" class="label">同步调用</text>
+  <rect x="280" y="520" width="240" height="110" class="chunk"/>
+  <text x="400" y="588" text-anchor="middle" class="small">请求</text>
+  <path class="arrow" d="M520 575 L730 575"/>
+  <rect x="730" y="500" width="250" height="150" class="full"/>
+  <text x="855" y="570" text-anchor="middle" class="small">完整响应</text>
+  <text x="855" y="605" text-anchor="middle" class="small">一次返回</text>
+  <text x="630" y="780" text-anchor="middle" class="small">适合分类、抽取、短摘要等任务</text>
+
+  <rect x="1290" y="300" width="960" height="680" class="panel"/>
+  <text x="1770" y="390" text-anchor="middle" class="label">流式调用</text>
+  <rect x="1410" y="520" width="220" height="110" class="chunk"/>
+  <text x="1520" y="588" text-anchor="middle" class="small">请求</text>
+  <path class="stream-arrow" d="M1630 575 L1740 575"/>
+  <rect x="1740" y="495" width="120" height="85" class="full"/>
+  <text x="1800" y="548" text-anchor="middle" class="small">片段 1</text>
+  <path class="stream-arrow" d="M1860 537 L1910 537"/>
+  <rect x="1910" y="495" width="120" height="85" class="full"/>
+  <text x="1970" y="548" text-anchor="middle" class="small">片段 2</text>
+  <path class="stream-arrow" d="M2030 537 L2080 537"/>
+  <rect x="2080" y="495" width="120" height="85" class="full"/>
+  <text x="2140" y="548" text-anchor="middle" class="small">片段 N</text>
+  <text x="1770" y="780" text-anchor="middle" class="small">适合聊天、长文生成、代码生成等任务</text>
+
+  <text x="120" y="1210" class="small">图 5-1 同步响应和流式响应的差异</text>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1350" viewBox="0 0 2400 1350">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .band { fill: #edf7fb; }
+      .box { fill: #ffffff; stroke: #b7c8d8; stroke-width: 3; rx: 22; }
+      .box2 { fill: #f5fbf8; stroke: #83b9a1; stroke-width: 3; rx: 22; }
+      .title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 58px; font-weight: 700; fill: #142033; }
+      .label { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 34px; font-weight: 700; fill: #142033; }
+      .small { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 25px; fill: #526173; }
+      .arrow { stroke: #2f80a7; stroke-width: 5; fill: none; }
+      .assoc { stroke: #7f8d9d; stroke-width: 4; fill: none; stroke-dasharray: 12 10; }
+      .arrowHead { fill: #2f80a7; }
+    </style>
+  </defs>
+  <rect class="bg" width="2400" height="1350"/>
+  <rect class="band" x="0" y="0" width="360" height="1350"/>
+  <text x="120" y="130" class="title">提示词的工程化结构</text>
+  <text x="120" y="178" class="small">把任务拆为可维护的模块，而不是写成一段临时自然语言</text>
+
+  <rect x="210" y="330" width="300" height="160" class="box"/>
+  <text x="360" y="405" text-anchor="middle" class="label">角色</text>
+  <text x="360" y="450" text-anchor="middle" class="small">模型以什么身份回答</text>
+
+  <rect x="640" y="330" width="300" height="160" class="box"/>
+  <text x="790" y="405" text-anchor="middle" class="label">任务</text>
+  <text x="790" y="450" text-anchor="middle" class="small">要完成什么工作</text>
+
+  <rect x="1070" y="330" width="300" height="160" class="box"/>
+  <text x="1220" y="405" text-anchor="middle" class="label">上下文</text>
+  <text x="1220" y="450" text-anchor="middle" class="small">完成任务所需资料</text>
+
+  <rect x="1500" y="330" width="300" height="160" class="box"/>
+  <text x="1650" y="405" text-anchor="middle" class="label">约束</text>
+  <text x="1650" y="450" text-anchor="middle" class="small">边界与禁止事项</text>
+
+  <rect x="1930" y="330" width="300" height="160" class="box"/>
+  <text x="2080" y="405" text-anchor="middle" class="label">输出格式</text>
+  <text x="2080" y="450" text-anchor="middle" class="small">JSON / 列表 / 表格</text>
+
+  <path class="arrow" d="M510 410 L622 410"/>
+  <polygon class="arrowHead" points="640,410 622,401 622,419"/>
+  <path class="arrow" d="M940 410 L1052 410"/>
+  <polygon class="arrowHead" points="1070,410 1052,401 1052,419"/>
+  <path class="arrow" d="M1370 410 L1482 410"/>
+  <polygon class="arrowHead" points="1500,410 1482,401 1482,419"/>
+  <path class="arrow" d="M1800 410 L1912 410"/>
+  <polygon class="arrowHead" points="1930,410 1912,401 1912,419"/>
+
+  <rect x="430" y="750" width="1540" height="250" class="box2"/>
+  <text x="1200" y="840" text-anchor="middle" class="label">示例（Few-shot）</text>
+  <text x="1200" y="895" text-anchor="middle" class="small">独立模块：输入样例 + 输出样例，让模型学习目标格式与判断标准</text>
+  <text x="1200" y="945" text-anchor="middle" class="small">适合分类、抽取、改写、结构化生成等任务</text>
+
+  <text x="120" y="1210" class="small">图 4-1 提示词的六个组成部分</text>
+</svg>

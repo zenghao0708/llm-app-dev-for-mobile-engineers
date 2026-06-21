@@ -1,0 +1,10 @@
+{
+  "fast-chat": {
+    "input_per_1k_usd": 0.0003,
+    "output_per_1k_usd": 0.0009
+  },
+  "accurate-chat": {
+    "input_per_1k_usd": 0.002,
+    "output_per_1k_usd": 0.006
+  }
+}

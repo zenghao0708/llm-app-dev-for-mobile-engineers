@@ -1,0 +1,26 @@
+name: 文字与格式问题
+description: 反馈错别字、标点、排版或链接问题
+title: "[typo] "
+labels:
+  - typo
+body:
+  - type: input
+    id: location
+    attributes:
+      label: 位置
+      description: 请填写章节、文件路径或在线页面地址。
+      placeholder: manuscript/chapters/ch03-python-environment.md
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 问题描述
+      description: 请贴出有问题的句子，并说明哪里需要修改。
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建议修改
+      description: 如果你有明确改法，可以直接写出来。

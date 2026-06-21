@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <rect width="390" height="844" fill="#f6f8fb"/>
+  <rect x="0" y="0" width="390" height="86" fill="#132033"/>
+  <text x="24" y="54" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">移动端知识助手</text>
+  <rect x="24" y="118" width="342" height="132" rx="16" fill="#ffffff" stroke="#d1dbe5" stroke-width="2"/>
+  <text x="44" y="164" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#132033">登录失败</text>
+  <text x="44" y="198" font-family="Arial, sans-serif" font-size="15" fill="#5d6b7c">当前页面无法完成会话刷新。</text>
+  <text x="44" y="226" font-family="Arial, sans-serif" font-size="15" fill="#d64242">HTTP 500 /api/session/refresh</text>
+  <rect x="24" y="278" width="342" height="86" rx="12" fill="#fff6e5" stroke="#d7b95f" stroke-width="2"/>
+  <text x="44" y="313" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#7a5a00">设备状态</text>
+  <text x="44" y="342" font-family="Arial, sans-serif" font-size="14" fill="#5d6b7c">iOS 18.1 / Wi-Fi / App 2.4.0</text>
+  <rect x="24" y="396" width="342" height="204" rx="12" fill="#ffffff" stroke="#d1dbe5" stroke-width="2"/>
+  <text x="44" y="432" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#132033">调试提示</text>
+  <text x="44" y="464" font-family="Arial, sans-serif" font-size="14" fill="#5d6b7c">request_id: req_demo_2026</text>
+  <text x="44" y="494" font-family="Arial, sans-serif" font-size="14" fill="#5d6b7c">用户点击“重试”后仍失败。</text>
+  <text x="44" y="524" font-family="Arial, sans-serif" font-size="14" fill="#5d6b7c">不包含真实手机号、邮箱或 Token。</text>
+  <rect x="24" y="640" width="342" height="56" rx="12" fill="#2f86b7"/>
+  <text x="195" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#ffffff">重试</text>
+  <rect x="24" y="716" width="342" height="56" rx="12" fill="#ffffff" stroke="#d1dbe5" stroke-width="2"/>
+  <text x="195" y="751" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#132033">提交工单</text>
+</svg>

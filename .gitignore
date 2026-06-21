@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+
+# Python runtime artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Logs and local outputs
+*.log
+logs/
+tmp/
+.playwright-cli/
+dist/
+build/
+
+# Node artifacts, reserved for future docs site tooling
+node_modules/
+.vite/
+.next/

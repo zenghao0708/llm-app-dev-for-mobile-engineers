@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2600" height="1450" viewBox="0 0 2600 1450">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #c9d4df; stroke-width: 3; rx: 26; }
+      .token { fill: #eaf6fb; stroke: #6fb3d3; stroke-width: 3; rx: 16; }
+      .ctx { fill: #edf8f5; stroke: #78b79f; stroke-width: 3; rx: 18; }
+      .out { fill: #fff7ed; stroke: #d89b52; stroke-width: 3; rx: 18; }
+      .title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 60px; font-weight: 700; fill: #142033; }
+      .label { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 34px; font-weight: 700; fill: #142033; }
+      .small { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 24px; fill: #526173; }
+      .tiny { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 22px; fill: #526173; }
+      .arrow { stroke: #2f80a7; stroke-width: 4.5; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="18" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L18,9 L0,18 z" fill="#2f80a7"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="2600" height="1450"/>
+  <text x="120" y="130" class="title">Token 与上下文窗口</text>
+  <text x="120" y="182" class="small">模型一次请求能看到的内容由上下文窗口限制，输入和输出都会消耗 Token 预算</text>
+
+  <rect x="130" y="300" width="2340" height="280" class="panel"/>
+  <text x="210" y="380" class="label">文本被切分为 Token</text>
+  <text x="210" y="425" class="small">中文、英文、标点和代码都会被拆成模型可处理的片段</text>
+
+  <rect x="220" y="475" width="140" height="62" class="token"/>
+  <text x="290" y="515" text-anchor="middle" class="tiny">用户</text>
+  <rect x="380" y="475" width="140" height="62" class="token"/>
+  <text x="450" y="515" text-anchor="middle" class="tiny">在</text>
+  <rect x="540" y="475" width="170" height="62" class="token"/>
+  <text x="625" y="515" text-anchor="middle" class="tiny">iOS 17</text>
+  <rect x="730" y="475" width="170" height="62" class="token"/>
+  <text x="815" y="515" text-anchor="middle" class="tiny">扫码页</text>
+  <rect x="920" y="475" width="140" height="62" class="token"/>
+  <text x="990" y="515" text-anchor="middle" class="tiny">闪退</text>
+  <rect x="1080" y="475" width="210" height="62" class="token"/>
+  <text x="1185" y="515" text-anchor="middle" class="tiny">AVCapture</text>
+  <rect x="1310" y="475" width="190" height="62" class="token"/>
+  <text x="1405" y="515" text-anchor="middle" class="tiny">Session</text>
+
+  <rect x="130" y="690" width="2340" height="420" class="panel"/>
+  <text x="210" y="770" class="label">上下文窗口 = 本次请求的工作区</text>
+  <text x="210" y="815" class="small">系统指令、用户输入、检索资料、历史消息和模型输出共享同一个 Token 预算</text>
+
+  <rect x="220" y="900" width="420" height="90" class="ctx"/>
+  <text x="430" y="955" text-anchor="middle" class="small">System Prompt</text>
+  <rect x="660" y="900" width="360" height="90" class="ctx"/>
+  <text x="840" y="955" text-anchor="middle" class="small">User Input</text>
+  <rect x="1040" y="900" width="520" height="90" class="ctx"/>
+  <text x="1300" y="955" text-anchor="middle" class="small">Retrieved Context</text>
+  <rect x="1580" y="900" width="360" height="90" class="ctx"/>
+  <text x="1760" y="955" text-anchor="middle" class="small">Chat History</text>
+  <rect x="1960" y="900" width="380" height="90" class="out"/>
+  <text x="2150" y="955" text-anchor="middle" class="small">Model Output</text>
+
+  <path class="arrow" d="M430 990 L430 1060"/>
+  <path class="arrow" d="M840 990 L840 1060"/>
+  <path class="arrow" d="M1300 990 L1300 1060"/>
+  <path class="arrow" d="M1760 990 L1760 1060"/>
+  <path class="arrow" d="M2150 990 L2150 1060"/>
+
+  <text x="210" y="1215" class="small">移动端设计提示：客户端保存会话 ID 和 UI 状态，服务端负责历史裁剪、摘要、检索和密钥保护。</text>
+  <text x="120" y="1335" class="small">图 2-1 Token 与上下文窗口的关系</text>
+</svg>
+

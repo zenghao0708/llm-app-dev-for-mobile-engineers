@@ -1,0 +1,42 @@
+[
+  {
+    "id": "api_key_boundary_answer",
+    "question": "移动端为什么不能直接保存模型 API Key？",
+    "expected_terms": ["反编译", "抓包", "自有服务端"],
+    "required_citation": {
+      "source": "mobile_ai_api.md",
+      "section": "API Key 管理"
+    },
+    "forbidden_terms": ["把 API Key 写进 App", "客户端保存模型密钥"]
+  },
+  {
+    "id": "streaming_cancel_answer",
+    "question": "移动端长回答应该怎么展示，用户离开页面时怎么办？",
+    "expected_terms": ["流式输出", "逐步追加", "取消请求"],
+    "required_citation": {
+      "source": "mobile_ai_api.md",
+      "section": "流式输出"
+    },
+    "forbidden_terms": ["必须等待完整回答", "不能取消"]
+  },
+  {
+    "id": "crash_log_redaction_answer",
+    "question": "崩溃日志里有手机号、邮箱和设备标识符时应该怎么处理？",
+    "expected_terms": ["手机号", "邮箱", "设备标识符", "脱敏"],
+    "required_citation": {
+      "source": "crash_analysis.md",
+      "section": "安全要求"
+    },
+    "forbidden_terms": ["无需脱敏", "直接上传原始日志"]
+  },
+  {
+    "id": "privacy_minimization_answer",
+    "question": "发送给大模型服务的上下文应该遵循什么原则？",
+    "expected_terms": ["数据最小化", "本地完成过滤", "不应传给模型"],
+    "required_citation": {
+      "source": "privacy_review.md",
+      "section": "数据最小化"
+    },
+    "forbidden_terms": ["所有上下文都发送"]
+  }
+]

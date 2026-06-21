@@ -1,0 +1,26 @@
+name: 技术勘误
+description: 反馈技术错误、过期信息或可能误导读者的表述
+title: "[errata] "
+labels:
+  - errata
+body:
+  - type: input
+    id: location
+    attributes:
+      label: 位置
+      description: 请填写章节、文件路径、代码文件或图编号。
+      placeholder: 第 5 章 / examples/mobile-knowledge-assistant/src/mobile_llm/app.py
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: 问题
+      description: 请说明当前内容为什么不准确，最好给出复现步骤或依据。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 建议改法
+      description: 请说明你认为更准确的写法或实现。

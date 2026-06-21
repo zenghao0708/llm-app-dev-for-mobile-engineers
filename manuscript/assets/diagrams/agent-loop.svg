@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1350" viewBox="0 0 2400 1350">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .node { fill: #ffffff; stroke: #c8d3df; stroke-width: 3; rx: 28; }
+      .tool { fill: #edf8f5; stroke: #79b79f; stroke-width: 3; rx: 28; }
+      .title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 58px; font-weight: 700; fill: #142033; }
+      .label { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 36px; font-weight: 700; fill: #142033; }
+      .small { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 25px; fill: #526173; }
+      .arrow { stroke: #2f80a7; stroke-width: 6; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="18" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L18,9 L0,18 z" fill="#2f80a7"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="2400" height="1350"/>
+  <text x="120" y="130" class="title">Agent 执行循环</text>
+  <text x="120" y="178" class="small">模型在受控范围内观察、规划、行动，并根据工具结果继续迭代</text>
+
+  <rect x="990" y="255" width="420" height="150" class="node"/>
+  <text x="1200" y="322" text-anchor="middle" class="label">Observe</text>
+  <text x="1200" y="366" text-anchor="middle" class="small">观察目标和上下文</text>
+
+  <rect x="1580" y="560" width="420" height="150" class="node"/>
+  <text x="1790" y="627" text-anchor="middle" class="label">Plan</text>
+  <text x="1790" y="671" text-anchor="middle" class="small">决定下一步动作</text>
+
+  <rect x="990" y="875" width="420" height="150" class="tool"/>
+  <text x="1200" y="942" text-anchor="middle" class="label">Act</text>
+  <text x="1200" y="986" text-anchor="middle" class="small">调用工具或生成结果</text>
+
+  <rect x="400" y="560" width="420" height="150" class="node"/>
+  <text x="610" y="627" text-anchor="middle" class="label">Tool Result</text>
+  <text x="610" y="671" text-anchor="middle" class="small">接收执行结果</text>
+
+  <rect x="990" y="560" width="420" height="150" class="node"/>
+  <text x="1200" y="627" text-anchor="middle" class="label">Reflect</text>
+  <text x="1200" y="671" text-anchor="middle" class="small">判断完成或继续</text>
+
+  <path class="arrow" d="M1410 330 C1630 350 1790 430 1790 552"/>
+  <path class="arrow" d="M1790 710 C1790 835 1580 950 1418 950"/>
+  <path class="arrow" d="M990 950 C820 950 610 835 610 718"/>
+  <path class="arrow" d="M820 635 L982 635"/>
+  <path class="arrow" d="M1200 560 L1200 413"/>
+
+  <rect x="1570" y="945" width="410" height="120" class="node"/>
+  <text x="1775" y="995" text-anchor="middle" class="small">工程边界</text>
+  <text x="1775" y="1032" text-anchor="middle" class="small">工具白名单 / 超时 / 最大步数 / 日志</text>
+
+  <text x="120" y="1210" class="small">图 10-1 Agent 的基本执行循环</text>
+</svg>

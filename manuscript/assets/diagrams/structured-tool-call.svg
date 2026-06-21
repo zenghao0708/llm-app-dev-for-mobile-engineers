@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1350" viewBox="0 0 2400 1350">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .panel { fill: #f7fafc; stroke: #cbd6e0; stroke-width: 3; rx: 26; }
+      .node { fill: #ffffff; stroke: #b8c8d8; stroke-width: 3; rx: 22; }
+      .model { fill: #eaf6fb; stroke: #67b2d6; stroke-width: 3; rx: 22; }
+      .gate { fill: #fff7ed; stroke: #d69a56; stroke-width: 3; rx: 22; }
+      .safe { fill: #edf8f5; stroke: #79b79f; stroke-width: 3; rx: 22; }
+      .title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 58px; font-weight: 700; fill: #142033; }
+      .label { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 31px; font-weight: 700; fill: #142033; }
+      .small { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 23px; fill: #526173; }
+      .arrow { stroke: #2f80a7; stroke-width: 5; fill: none; }
+      .mutedArrow { stroke: #7f8d9d; stroke-width: 4; fill: none; stroke-dasharray: 12 10; }
+      .arrowHead { fill: #2f80a7; }
+      .mutedHead { fill: #7f8d9d; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="2400" height="1350"/>
+  <text x="120" y="130" class="title">结构化输出与工具调用边界</text>
+  <text x="120" y="178" class="small">模型负责生成受约束的工具请求，服务端负责校验、授权、执行和审计</text>
+
+  <rect x="150" y="285" width="2100" height="790" class="panel"/>
+
+  <rect x="250" y="430" width="300" height="150" class="node"/>
+  <text x="400" y="494" text-anchor="middle" class="label">移动端输入</text>
+  <text x="400" y="538" text-anchor="middle" class="small">自然语言 / 页面状态</text>
+
+  <rect x="650" y="430" width="330" height="150" class="model"/>
+  <text x="815" y="494" text-anchor="middle" class="label">模型结构化输出</text>
+  <text x="815" y="538" text-anchor="middle" class="small">JSON 工具请求</text>
+
+  <rect x="1080" y="430" width="310" height="150" class="gate"/>
+  <text x="1235" y="494" text-anchor="middle" class="label">Schema 校验</text>
+  <text x="1235" y="538" text-anchor="middle" class="small">字段 / 类型 / 枚举</text>
+
+  <rect x="1490" y="430" width="310" height="150" class="gate"/>
+  <text x="1645" y="494" text-anchor="middle" class="label">权限与白名单</text>
+  <text x="1645" y="538" text-anchor="middle" class="small">用户归属 / 工具范围</text>
+
+  <rect x="1900" y="430" width="300" height="150" class="safe"/>
+  <text x="2050" y="494" text-anchor="middle" class="label">业务工具</text>
+  <text x="2050" y="538" text-anchor="middle" class="small">查询 / 取消申请</text>
+
+  <rect x="760" y="790" width="360" height="150" class="node"/>
+  <text x="940" y="854" text-anchor="middle" class="label">移动端确认卡</text>
+  <text x="940" y="898" text-anchor="middle" class="small">高风险动作需确认</text>
+
+  <rect x="1320" y="790" width="360" height="150" class="safe"/>
+  <text x="1500" y="854" text-anchor="middle" class="label">结果与审计</text>
+  <text x="1500" y="898" text-anchor="middle" class="small">状态 / request_id / 日志</text>
+
+  <path class="arrow" d="M550 505 L632 505"/>
+  <polygon class="arrowHead" points="650,505 632,496 632,514"/>
+
+  <path class="arrow" d="M980 505 L1062 505"/>
+  <polygon class="arrowHead" points="1080,505 1062,496 1062,514"/>
+
+  <path class="arrow" d="M1390 505 L1472 505"/>
+  <polygon class="arrowHead" points="1490,505 1472,496 1472,514"/>
+
+  <path class="arrow" d="M1800 505 L1882 505"/>
+  <polygon class="arrowHead" points="1900,505 1882,496 1882,514"/>
+
+  <path class="arrow" d="M2050 580 L2050 700 L1500 700 L1500 772"/>
+  <polygon class="arrowHead" points="1500,790 1491,772 1509,772"/>
+
+  <path class="mutedArrow" d="M1645 580 L1645 650 L940 650 L940 772"/>
+  <polygon class="mutedHead" points="940,790 931,772 949,772"/>
+  <text x="1290" y="632" text-anchor="middle" class="small">高风险路径</text>
+
+  <path class="arrow" d="M1120 865 L1302 865"/>
+  <polygon class="arrowHead" points="1320,865 1302,856 1302,874"/>
+
+  <text x="120" y="1210" class="small">图 6-1 结构化输出进入工具调用前需要经过服务端校验和权限判断，高风险动作还需人工确认</text>
+</svg>

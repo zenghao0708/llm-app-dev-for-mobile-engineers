@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1350" viewBox="0 0 2400 1350">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .panel { fill: #f7fafc; stroke: #cbd6e0; stroke-width: 3; rx: 26; }
+      .node { fill: #ffffff; stroke: #b8c8d8; stroke-width: 3; rx: 22; }
+      .metric { fill: #edf8f5; stroke: #79b79f; stroke-width: 3; rx: 22; }
+      .warn { fill: #fff7ed; stroke: #d69a56; stroke-width: 3; rx: 22; }
+      .title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 58px; font-weight: 700; fill: #142033; }
+      .label { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 31px; font-weight: 700; fill: #142033; }
+      .small { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 23px; fill: #526173; }
+      .arrow { stroke: #2f80a7; stroke-width: 5; fill: none; }
+      .mutedArrow { stroke: #7f8d9d; stroke-width: 4; fill: none; stroke-dasharray: 12 10; }
+      .arrowHead { fill: #2f80a7; }
+      .mutedHead { fill: #7f8d9d; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="2400" height="1350"/>
+  <text x="120" y="130" class="title">成本、性能与稳定性观测闭环</text>
+  <text x="120" y="178" class="small">把移动端体验、服务端日志、模型网关和优化动作串成同一条证据链</text>
+
+  <rect x="150" y="280" width="2100" height="830" class="panel"/>
+
+  <rect x="260" y="430" width="310" height="150" class="node"/>
+  <text x="415" y="494" text-anchor="middle" class="label">移动端请求</text>
+  <text x="415" y="538" text-anchor="middle" class="small">request_id / 状态机</text>
+
+  <rect x="690" y="430" width="310" height="150" class="node"/>
+  <text x="845" y="494" text-anchor="middle" class="label">服务端网关</text>
+  <text x="845" y="538" text-anchor="middle" class="small">鉴权 / 缓存 / 限流</text>
+
+  <rect x="1120" y="430" width="310" height="150" class="warn"/>
+  <text x="1275" y="494" text-anchor="middle" class="label">模型调用</text>
+  <text x="1275" y="538" text-anchor="middle" class="small">Token / 延迟 / 错误</text>
+
+  <rect x="1550" y="430" width="310" height="150" class="metric"/>
+  <text x="1705" y="494" text-anchor="middle" class="label">观测日志</text>
+  <text x="1705" y="538" text-anchor="middle" class="small">网关日志 / 埋点 / 崩溃</text>
+
+  <rect x="760" y="790" width="380" height="150" class="metric"/>
+  <text x="950" y="854" text-anchor="middle" class="label">报表与告警</text>
+  <text x="950" y="898" text-anchor="middle" class="small">成本 / 首 Token / P95 / 错误率</text>
+
+  <rect x="1300" y="790" width="430" height="150" class="node"/>
+  <text x="1515" y="854" text-anchor="middle" class="label">优化动作</text>
+  <text x="1515" y="898" text-anchor="middle" class="small">缓存 / 降级 / 重试 / 模型路由</text>
+
+  <path class="arrow" d="M570 505 L672 505"/>
+  <polygon class="arrowHead" points="690,505 672,496 672,514"/>
+
+  <path class="arrow" d="M1000 505 L1102 505"/>
+  <polygon class="arrowHead" points="1120,505 1102,496 1102,514"/>
+
+  <path class="arrow" d="M1430 505 L1532 505"/>
+  <polygon class="arrowHead" points="1550,505 1532,496 1532,514"/>
+
+  <path class="arrow" d="M1705 580 L1705 690 L950 690 L950 772"/>
+  <polygon class="arrowHead" points="950,790 941,772 959,772"/>
+
+  <path class="arrow" d="M1140 865 L1282 865"/>
+  <polygon class="arrowHead" points="1300,865 1282,856 1282,874"/>
+
+  <path class="arrow" d="M1515 790 L1515 700 L845 700 L845 598"/>
+  <polygon class="arrowHead" points="845,580 836,598 854,598"/>
+
+  <path class="mutedArrow" d="M1515 940 L1515 1020 L415 1020 L415 598"/>
+  <polygon class="mutedHead" points="415,580 406,598 424,598"/>
+
+  <text x="120" y="1210" class="small">图 14-1 从请求、模型调用和日志回到缓存、降级、重试与模型路由优化</text>
+</svg>

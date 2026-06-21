@@ -1,0 +1,29 @@
+[
+  {
+    "order_id": "A1024",
+    "user_id": "user_001",
+    "status": "shipped",
+    "carrier": "SF Express",
+    "eta": "2026-06-22",
+    "total_cny": 129.0,
+    "cancellable": false
+  },
+  {
+    "order_id": "P3001",
+    "user_id": "user_001",
+    "status": "paid",
+    "carrier": "",
+    "eta": "",
+    "total_cny": 59.9,
+    "cancellable": true
+  },
+  {
+    "order_id": "B2048",
+    "user_id": "user_002",
+    "status": "delivered",
+    "carrier": "YTO Express",
+    "eta": "2026-06-18",
+    "total_cny": 88.0,
+    "cancellable": false
+  }
+]

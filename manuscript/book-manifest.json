@@ -1,0 +1,184 @@
+{
+  "title": "大模型应用开发快速入门",
+  "subtitle": "Prompt、RAG、Agent 与工程实践",
+  "audience": "移动端开发工程师",
+  "repository_name": "llm-app-dev-for-mobile-engineers",
+  "source_order": [
+    {
+      "id": "book-info",
+      "type": "front-matter",
+      "title": "书名页与元信息",
+      "path": "manuscript/front-matter/00-book-info.md"
+    },
+    {
+      "id": "preface",
+      "type": "front-matter",
+      "title": "前言",
+      "path": "manuscript/front-matter/01-preface.md"
+    },
+    {
+      "id": "contents",
+      "type": "contents",
+      "title": "目录",
+      "path": "manuscript/contents.md"
+    },
+    {
+      "id": "ch01-understanding-llm",
+      "type": "chapter",
+      "number": 1,
+      "part": "第 1 篇 大模型基础认知",
+      "title": "认识大模型",
+      "path": "manuscript/chapters/ch01-understanding-llm.md"
+    },
+    {
+      "id": "ch02-capabilities-and-limits",
+      "type": "chapter",
+      "number": 2,
+      "part": "第 1 篇 大模型基础认知",
+      "title": "大模型的核心能力与边界",
+      "path": "manuscript/chapters/ch02-capabilities-and-limits.md"
+    },
+    {
+      "id": "ch03-python-environment",
+      "type": "chapter",
+      "number": 3,
+      "part": "第 1 篇 大模型基础认知",
+      "title": "Python 服务端环境与移动端接入准备",
+      "path": "manuscript/chapters/ch03-python-environment.md"
+    },
+    {
+      "id": "ch04-prompt-engineering",
+      "type": "chapter",
+      "number": 4,
+      "part": "第 2 篇 Prompt 与 API 开发",
+      "title": "提示工程（Prompt Engineering）入门",
+      "path": "manuscript/chapters/ch04-prompt-engineering.md"
+    },
+    {
+      "id": "ch05-api-practice",
+      "type": "chapter",
+      "number": 5,
+      "part": "第 2 篇 Prompt 与 API 开发",
+      "title": "大模型 API 调用实践",
+      "path": "manuscript/chapters/ch05-api-practice.md"
+    },
+    {
+      "id": "ch06-structured-output-tools",
+      "type": "chapter",
+      "number": 6,
+      "part": "第 2 篇 Prompt 与 API 开发",
+      "title": "结构化输出与工具调用",
+      "path": "manuscript/chapters/ch06-structured-output-tools.md"
+    },
+    {
+      "id": "ch07-embedding-vector-search",
+      "type": "chapter",
+      "number": 7,
+      "part": "第 3 篇 RAG 与知识库应用",
+      "title": "Embedding 与向量检索",
+      "path": "manuscript/chapters/ch07-embedding-vector-search.md"
+    },
+    {
+      "id": "ch08-rag-development",
+      "type": "chapter",
+      "number": 8,
+      "part": "第 3 篇 RAG 与知识库应用",
+      "title": "RAG 应用开发",
+      "path": "manuscript/chapters/ch08-rag-development.md"
+    },
+    {
+      "id": "ch09-rag-optimization",
+      "type": "chapter",
+      "number": 9,
+      "part": "第 3 篇 RAG 与知识库应用",
+      "title": "RAG 工程优化",
+      "path": "manuscript/chapters/ch09-rag-optimization.md"
+    },
+    {
+      "id": "ch10-agent-basics",
+      "type": "chapter",
+      "number": 10,
+      "part": "第 4 篇 Agent 与复杂应用",
+      "title": "Agent 基础",
+      "path": "manuscript/chapters/ch10-agent-basics.md"
+    },
+    {
+      "id": "ch11-workflow-orchestration",
+      "type": "chapter",
+      "number": 11,
+      "part": "第 4 篇 Agent 与复杂应用",
+      "title": "多工具调用与工作流编排",
+      "path": "manuscript/chapters/ch11-workflow-orchestration.md"
+    },
+    {
+      "id": "ch12-multimodal",
+      "type": "chapter",
+      "number": 12,
+      "part": "第 4 篇 Agent 与复杂应用",
+      "title": "多模态大模型应用",
+      "path": "manuscript/chapters/ch12-multimodal.md"
+    },
+    {
+      "id": "ch13-evaluation",
+      "type": "chapter",
+      "number": 13,
+      "part": "第 5 篇 工程化、评测与上线",
+      "title": "大模型应用的评测方法",
+      "path": "manuscript/chapters/ch13-evaluation.md"
+    },
+    {
+      "id": "ch14-cost-performance-reliability",
+      "type": "chapter",
+      "number": 14,
+      "part": "第 5 篇 工程化、评测与上线",
+      "title": "成本、性能与稳定性优化",
+      "path": "manuscript/chapters/ch14-cost-performance-reliability.md"
+    },
+    {
+      "id": "ch15-security-privacy-compliance",
+      "type": "chapter",
+      "number": 15,
+      "part": "第 5 篇 工程化、评测与上线",
+      "title": "安全、隐私与合规",
+      "path": "manuscript/chapters/ch15-security-privacy-compliance.md"
+    },
+    {
+      "id": "ch16-mobile-knowledge-assistant",
+      "type": "chapter",
+      "number": 16,
+      "part": "第 5 篇 工程化、评测与上线",
+      "title": "综合项目：构建移动端知识助手",
+      "path": "manuscript/chapters/ch16-mobile-knowledge-assistant.md"
+    },
+    {
+      "id": "appendix-a-glossary",
+      "type": "back-matter",
+      "title": "附录 A 常见术语表",
+      "path": "manuscript/back-matter/appendix-a-glossary.md"
+    },
+    {
+      "id": "appendix-b-prompt-templates",
+      "type": "back-matter",
+      "title": "附录 B Prompt 模板库",
+      "path": "manuscript/back-matter/appendix-b-prompt-templates.md"
+    },
+    {
+      "id": "appendix-c-code-project",
+      "type": "back-matter",
+      "title": "附录 C Python 与移动端项目结构建议",
+      "path": "manuscript/back-matter/appendix-c-code-project.md"
+    },
+    {
+      "id": "appendix-d-troubleshooting",
+      "type": "back-matter",
+      "title": "附录 D 常见故障排查清单",
+      "path": "manuscript/back-matter/appendix-d-troubleshooting.md"
+    },
+    {
+      "id": "appendix-e-further-reading",
+      "type": "back-matter",
+      "title": "附录 E 延伸阅读与资料来源",
+      "path": "manuscript/back-matter/appendix-e-further-reading.md"
+    }
+  ]
+}

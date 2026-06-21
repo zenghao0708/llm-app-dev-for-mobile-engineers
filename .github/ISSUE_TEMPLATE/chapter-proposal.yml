@@ -1,0 +1,30 @@
+name: 章节调整建议
+description: 建议新增、删除、合并或重排章节
+title: "[chapter] "
+labels:
+  - chapter-proposal
+body:
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: 调整类型
+      options:
+        - 新增章节
+        - 删除章节
+        - 合并章节
+        - 重排章节
+        - 调整章节重点
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 调整原因
+      description: 请说明这个调整能解决什么读者问题。
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: 影响范围
+      description: 请说明是否影响目录、示例代码、配图或目标篇幅。

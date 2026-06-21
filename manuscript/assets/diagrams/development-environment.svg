@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1350" viewBox="0 0 2400 1350">
+  <defs>
+    <style>
+      .bg { fill: #f7fafc; }
+      .band { fill: #edf7fb; }
+      .box { fill: #ffffff; stroke: #c8d3df; stroke-width: 3; rx: 22; }
+      .accent { fill: #e7f4fb; stroke: #78b8d8; stroke-width: 3; rx: 22; }
+      .soft { fill: #f5fbf8; stroke: #86b99f; stroke-width: 3; rx: 22; }
+      .title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 58px; font-weight: 700; fill: #152235; }
+      .label { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 34px; font-weight: 700; fill: #172033; }
+      .small { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 24px; fill: #526173; }
+      .arrow { stroke: #2f80a7; stroke-width: 5; fill: none; }
+      .arrowHead { fill: #2f80a7; }
+      .dash { stroke: #7f8d9d; stroke-width: 4; fill: none; stroke-dasharray: 12 10; }
+      .tagBg { fill: #f7fafc; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="2400" height="1350"/>
+  <rect class="band" x="0" y="0" width="360" height="1350"/>
+  <text x="120" y="130" class="title">本地开发与移动端调试环境</text>
+  <text x="120" y="180" class="small">先用 mock provider 跑通链路，再切换真实模型网关；密钥始终留在服务端</text>
+
+  <rect x="120" y="390" width="290" height="180" class="box"/>
+  <text x="265" y="468" text-anchor="middle" class="label">开发机终端</text>
+  <text x="265" y="515" text-anchor="middle" class="small">venv / python3 / curl</text>
+
+  <rect x="540" y="360" width="330" height="240" class="accent"/>
+  <text x="705" y="458" text-anchor="middle" class="label">Python 虚拟环境</text>
+  <text x="705" y="508" text-anchor="middle" class="small">隔离解释器与依赖</text>
+  <text x="705" y="552" text-anchor="middle" class="small">当前示例仅用标准库</text>
+
+  <rect x="1030" y="350" width="350" height="260" class="accent"/>
+  <text x="1205" y="448" text-anchor="middle" class="label">自有服务端 API</text>
+  <text x="1205" y="498" text-anchor="middle" class="small">/health / /api/ask</text>
+  <text x="1205" y="542" text-anchor="middle" class="small">权限 / 配置 / 错误兜底</text>
+
+  <rect x="1540" y="360" width="330" height="240" class="soft"/>
+  <text x="1705" y="448" text-anchor="middle" class="label">模型 Provider</text>
+  <text x="1705" y="498" text-anchor="middle" class="small">mock 本地跑通</text>
+  <text x="1705" y="538" text-anchor="middle" class="small">openai_compatible</text>
+  <text x="1705" y="578" text-anchor="middle" class="small">切换真实网关</text>
+
+  <rect x="1980" y="390" width="300" height="180" class="box"/>
+  <text x="2130" y="468" text-anchor="middle" class="label">移动端 App</text>
+  <text x="2130" y="512" text-anchor="middle" class="small">iOS / Android</text>
+  <text x="2130" y="552" text-anchor="middle" class="small">Flutter / RN</text>
+
+  <rect x="690" y="830" width="330" height="180" class="box"/>
+  <text x="855" y="908" text-anchor="middle" class="label">环境变量</text>
+  <text x="855" y="955" text-anchor="middle" class="small">LLM_PROVIDER / PORT</text>
+
+  <rect x="1160" y="830" width="330" height="180" class="box"/>
+  <text x="1325" y="908" text-anchor="middle" class="label">示例文档</text>
+  <text x="1325" y="955" text-anchor="middle" class="small">data/documents/*.md</text>
+
+  <rect x="1630" y="830" width="330" height="180" class="box"/>
+  <text x="1795" y="908" text-anchor="middle" class="label">本地检查脚本</text>
+  <text x="1795" y="955" text-anchor="middle" class="small">dev_environment_check.py</text>
+
+  <path class="arrow" d="M410 480 L522 480"/>
+  <polygon class="arrowHead" points="540,480 522,471 522,489"/>
+
+  <path class="arrow" d="M870 480 L1012 480"/>
+  <polygon class="arrowHead" points="1030,480 1012,471 1012,489"/>
+
+  <path class="arrow" d="M1380 480 L1522 480"/>
+  <polygon class="arrowHead" points="1540,480 1522,471 1522,489"/>
+
+  <path class="arrow" d="M1980 570 C1840 730 1510 740 1398 610"/>
+  <polygon class="arrowHead" points="1380,610 1398,601 1398,619"/>
+  <rect x="1600" y="680" width="150" height="38" class="tagBg"/>
+  <text x="1675" y="710" text-anchor="middle" class="small">移动端请求</text>
+
+  <path class="dash" d="M855 830 L1110 612"/>
+  <polygon class="arrowHead" points="1124,600 1104,604 1116,618"/>
+
+  <path class="dash" d="M1325 830 L1250 628"/>
+  <polygon class="arrowHead" points="1244,610 1239,630 1258,623"/>
+
+  <path class="dash" d="M1795 830 L1795 760 L1360 760 L1360 628"/>
+  <polygon class="arrowHead" points="1360,610 1350,628 1370,628"/>
+
+  <text x="120" y="1210" class="small">图 3-1 本地开发与移动端调试环境</text>
+</svg>

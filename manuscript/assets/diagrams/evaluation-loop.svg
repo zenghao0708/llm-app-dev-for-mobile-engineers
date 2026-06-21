@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1350" viewBox="0 0 2400 1350">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .panel { fill: #f7fafc; stroke: #cbd6e0; stroke-width: 3; rx: 26; }
+      .node { fill: #ffffff; stroke: #b8c8d8; stroke-width: 3; rx: 22; }
+      .metric { fill: #edf8f5; stroke: #79b79f; stroke-width: 3; rx: 22; }
+      .gate { fill: #fff7ed; stroke: #d69a56; stroke-width: 3; rx: 22; }
+      .title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 58px; font-weight: 700; fill: #142033; }
+      .label { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 32px; font-weight: 700; fill: #142033; }
+      .small { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 23px; fill: #526173; }
+      .arrow { stroke: #2f80a7; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+      .mutedArrow { stroke: #7f8d9d; stroke-width: 4; fill: none; marker-end: url(#mutedArrow); stroke-dasharray: 12 10; }
+    </style>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="18" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L18,9 L0,18 z" fill="#2f80a7"/>
+    </marker>
+    <marker id="mutedArrow" markerWidth="16" markerHeight="16" refX="16" refY="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L16,8 L0,16 z" fill="#7f8d9d"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="2400" height="1350"/>
+  <text x="120" y="130" class="title">大模型应用评测闭环</text>
+  <text x="120" y="178" class="small">用离线评测、CI 门禁和线上观测持续比较 Prompt、模型、检索策略和系统改动</text>
+
+  <rect x="160" y="285" width="2080" height="805" class="panel"/>
+
+  <rect x="250" y="420" width="300" height="150" class="node"/>
+  <text x="400" y="484" text-anchor="middle" class="label">评测集</text>
+  <text x="400" y="528" text-anchor="middle" class="small">问题 / 期望要点</text>
+
+  <rect x="650" y="420" width="300" height="150" class="node"/>
+  <text x="800" y="484" text-anchor="middle" class="label">运行应用</text>
+  <text x="800" y="528" text-anchor="middle" class="small">Prompt + RAG + 模型</text>
+
+  <rect x="1050" y="420" width="300" height="150" class="metric"/>
+  <text x="1200" y="484" text-anchor="middle" class="label">自动评分</text>
+  <text x="1200" y="528" text-anchor="middle" class="small">要点 / 引用 / 风险</text>
+
+  <rect x="1450" y="420" width="300" height="150" class="gate"/>
+  <text x="1600" y="484" text-anchor="middle" class="label">CI 报告/门禁</text>
+  <text x="1600" y="528" text-anchor="middle" class="small">基线 / 阈值 / 阻断</text>
+
+  <rect x="1850" y="420" width="300" height="150" class="node"/>
+  <text x="2000" y="484" text-anchor="middle" class="label">人工复核</text>
+  <text x="2000" y="528" text-anchor="middle" class="small">抽检与问题归因</text>
+
+  <rect x="560" y="760" width="420" height="150" class="metric"/>
+  <text x="770" y="824" text-anchor="middle" class="label">线上观测</text>
+  <text x="770" y="868" text-anchor="middle" class="small">移动端埋点 / 网关日志 / 崩溃监控</text>
+
+  <rect x="1250" y="760" width="420" height="150" class="node"/>
+  <text x="1460" y="824" text-anchor="middle" class="label">迭代优化</text>
+  <text x="1460" y="868" text-anchor="middle" class="small">修改 Prompt / 检索 / 工具 / 模型</text>
+
+  <path class="arrow" d="M550 495 L650 495"/>
+  <path class="arrow" d="M950 495 L1050 495"/>
+  <path class="arrow" d="M1350 495 L1450 495"/>
+  <path class="arrow" d="M1750 495 L1850 495"/>
+  <path class="arrow" d="M2000 570 L2000 650 L1460 650 L1460 760"/>
+  <path class="arrow" d="M1460 910 L1460 1000 L400 1000 L400 570"/>
+  <path class="arrow" d="M980 835 L1250 835"/>
+  <path class="mutedArrow" d="M770 760 L770 650 L1600 650 L1600 570"/>
+
+  <text x="120" y="1210" class="small">图 13-1 离线评测、CI 门禁、线上观测共同回到工程迭代</text>
+</svg>

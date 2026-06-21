@@ -1,0 +1,53 @@
+{
+  "user_id": "mobile_ai_team",
+  "week": "2026-W25",
+  "tasks": [
+    {
+      "title": "接入 SSE 流式输出",
+      "status": "done",
+      "platform": "iOS",
+      "impact": "长回答首屏等待时间降低"
+    },
+    {
+      "title": "补充 RAG 引用卡片",
+      "status": "done",
+      "platform": "Android",
+      "impact": "用户可以展开查看来源章节"
+    },
+    {
+      "title": "Agent 工具白名单设计",
+      "status": "in_progress",
+      "platform": "Server",
+      "impact": "限制模型只能调用只读分析工具"
+    }
+  ],
+  "meetings": [
+    {
+      "topic": "隐私评审",
+      "decision": "模型上下文只保留必要字段，日志进入脱敏流程"
+    },
+    {
+      "topic": "弱网体验",
+      "decision": "移动端保留取消按钮，服务端暴露 request_id"
+    }
+  ],
+  "commits": [
+    {
+      "repo": "mobile-ai-app",
+      "summary": "新增 SSE 客户端状态机测试"
+    },
+    {
+      "repo": "mobile-ai-service",
+      "summary": "增加 RAG 评测脚本和黄金问题集"
+    }
+  ],
+  "risks": [
+    "真实模型网关的流式协议尚未接入",
+    "生产环境需要补充认证、限流和审计日志"
+  ],
+  "next_week": [
+    "接入真实模型网关流式协议",
+    "为引用错误反馈增加服务端记录",
+    "补充 Android 弱网取消测试"
+  ]
+}

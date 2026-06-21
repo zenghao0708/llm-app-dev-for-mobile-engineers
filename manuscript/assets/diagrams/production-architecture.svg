@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2800" height="1600" viewBox="0 0 2800 1600">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .box { fill: #ffffff; stroke: #c8d3df; stroke-width: 3; rx: 22; }
+      .blue { fill: #edf5fb; stroke: #72b6d7; stroke-width: 3; rx: 22; }
+      .green { fill: #edf8f5; stroke: #78b79f; stroke-width: 3; rx: 22; }
+      .gray { fill: #f2f4f7; stroke: #b7c0cc; stroke-width: 3; rx: 22; }
+      .title { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 62px; font-weight: 700; fill: #142033; }
+      .label { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 34px; font-weight: 700; fill: #142033; }
+      .small { font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif; font-size: 24px; fill: #526173; }
+      .arrow { stroke: #2f80a7; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #7d8a99; stroke-width: 3.5; stroke-dasharray: 12 10; fill: none; opacity: 0.82; marker-end: url(#arrow2); }
+    </style>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="18" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L18,9 L0,18 z" fill="#2f80a7"/>
+    </marker>
+    <marker id="arrow2" markerWidth="16" markerHeight="16" refX="16" refY="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L16,8 L0,16 z" fill="#7d8a99"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="2800" height="1600"/>
+  <text x="120" y="135" class="title">移动端知识助手系统架构</text>
+  <text x="120" y="185" class="small">App 接入、检索增强、模型网关、评测与监控共同构成生产级应用</text>
+
+  <rect x="130" y="350" width="340" height="170" class="box"/>
+  <text x="300" y="425" text-anchor="middle" class="label">移动端 App</text>
+  <text x="300" y="472" text-anchor="middle" class="small">提问 / 引用 / 反馈</text>
+
+  <rect x="620" y="330" width="380" height="210" class="blue"/>
+  <text x="810" y="415" text-anchor="middle" class="label">服务端 API</text>
+  <text x="810" y="462" text-anchor="middle" class="small">会话 / 权限 / RAG 编排</text>
+
+  <rect x="1160" y="300" width="380" height="170" class="green"/>
+  <text x="1350" y="375" text-anchor="middle" class="label">检索服务</text>
+  <text x="1350" y="422" text-anchor="middle" class="small">Embedding / Top-K / 过滤</text>
+
+  <rect x="1160" y="570" width="380" height="170" class="green"/>
+  <text x="1350" y="645" text-anchor="middle" class="label">向量库</text>
+  <text x="1350" y="692" text-anchor="middle" class="small">片段 / 向量 / 元数据</text>
+
+  <rect x="1720" y="330" width="380" height="210" class="blue"/>
+  <text x="1910" y="415" text-anchor="middle" class="label">模型网关</text>
+  <text x="1910" y="462" text-anchor="middle" class="small">模型路由 / 限流 / 重试</text>
+
+  <rect x="2260" y="350" width="360" height="170" class="box"/>
+  <text x="2440" y="425" text-anchor="middle" class="label">大模型服务</text>
+  <text x="2440" y="472" text-anchor="middle" class="small">生成 / 结构化输出</text>
+
+  <rect x="620" y="900" width="380" height="180" class="gray"/>
+  <text x="810" y="978" text-anchor="middle" class="label">文档处理</text>
+  <text x="810" y="1026" text-anchor="middle" class="small">解析 / 切分 / 清洗</text>
+
+  <rect x="1160" y="900" width="380" height="180" class="gray"/>
+  <text x="1350" y="978" text-anchor="middle" class="label">任务队列</text>
+  <text x="1350" y="1026" text-anchor="middle" class="small">异步导入 / 重建索引</text>
+
+  <rect x="1720" y="900" width="380" height="180" class="gray"/>
+  <text x="1910" y="978" text-anchor="middle" class="label">评测服务</text>
+  <text x="1910" y="1026" text-anchor="middle" class="small">测试集 / 评分 / 回归</text>
+
+  <rect x="2260" y="900" width="360" height="180" class="gray"/>
+  <text x="2440" y="978" text-anchor="middle" class="label">监控日志</text>
+  <text x="2440" y="1026" text-anchor="middle" class="small">延迟 / 成本 / 错误</text>
+
+  <path class="arrow" d="M470 435 L620 435"/>
+  <path class="arrow" d="M1000 435 L1160 385"/>
+  <path class="arrow" d="M1540 385 L1720 435"/>
+  <path class="arrow" d="M2100 435 L2260 435"/>
+  <path class="arrow" d="M1350 470 L1350 570"/>
+  <path class="dash" d="M810 900 L810 540"/>
+  <path class="dash" d="M1000 990 L1160 990"/>
+  <path class="dash" d="M1350 900 L1350 740"/>
+  <path class="dash" d="M1910 900 L1910 820 L1050 820 L1050 650 L1000 650 L1000 540"/>
+  <path class="dash" d="M2440 900 L2440 1220 L520 1220 L520 650 L620 650 L620 540"/>
+
+  <text x="120" y="1450" class="small">图 16-1 移动端知识助手的生产级系统架构</text>
+</svg>

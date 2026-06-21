@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1000" viewBox="0 0 1800 1000">
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#2f86b7"/>
+    </marker>
+    <style>
+      .bg { fill: #f7fafc; }
+      .title { font: 700 44px sans-serif; fill: #132033; }
+      .subtitle { font: 500 20px sans-serif; fill: #5c6b7a; }
+      .box { fill: #ffffff; stroke: #c8d4df; stroke-width: 2.5; rx: 14; }
+      .box-blue { fill: #e8f5fb; stroke: #64b5df; stroke-width: 2.5; rx: 14; }
+      .box-green { fill: #edf8f2; stroke: #78bea1; stroke-width: 2.5; rx: 14; }
+      .box-yellow { fill: #fff8e6; stroke: #d7b95f; stroke-width: 2.5; rx: 14; }
+      .label { font: 700 25px sans-serif; fill: #142033; text-anchor: middle; }
+      .text { font: 500 18px sans-serif; fill: #5d6b7c; text-anchor: middle; }
+      .small { font: 500 16px sans-serif; fill: #6d7b8c; text-anchor: middle; }
+      .arrow { stroke: #2f86b7; stroke-width: 5; fill: none; marker-end: url(#arrow-blue); }
+      .arrow-dash { stroke: #7a8898; stroke-width: 4; fill: none; marker-end: url(#arrow-blue); stroke-dasharray: 10 8; }
+      .caption { font: 500 18px sans-serif; fill: #667386; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1800" height="1000"/>
+  <text x="80" y="95" class="title">RAG 工程优化闭环</text>
+  <text x="80" y="132" class="subtitle">先用评测集定位问题，再调整切分、检索、重排和 Prompt，最后通过移动端反馈继续迭代</text>
+
+  <rect class="box" x="90" y="260" width="280" height="140"/>
+  <text x="230" y="316" class="label">黄金问题集</text>
+  <text x="230" y="352" class="text">问题 / 期望文档</text>
+  <text x="230" y="382" class="text">期望章节</text>
+
+  <rect class="box-blue" x="480" y="250" width="310" height="160"/>
+  <text x="635" y="306" class="label">检索基线</text>
+  <text x="635" y="342" class="text">关键词 / TF-IDF / 向量</text>
+  <text x="635" y="372" class="text">Top-K 召回</text>
+
+  <rect class="box-green" x="900" y="250" width="310" height="160"/>
+  <text x="1055" y="306" class="label">优化策略</text>
+  <text x="1055" y="342" class="text">Chunk / 元数据过滤</text>
+  <text x="1055" y="372" class="text">混合检索 / 重排</text>
+
+  <rect class="box-yellow" x="1320" y="250" width="320" height="160"/>
+  <text x="1480" y="306" class="label">质量指标</text>
+  <text x="1480" y="342" class="text">hit@k / MRR / 引用准确率</text>
+  <text x="1480" y="372" class="text">延迟 / 成本 / 失败率</text>
+
+  <rect class="box" x="1320" y="610" width="320" height="155"/>
+  <text x="1480" y="670" class="label">移动端反馈</text>
+  <text x="1480" y="706" class="text">有用 / 无用 / 引用错误</text>
+
+  <rect class="box-green" x="900" y="610" width="310" height="155"/>
+  <text x="1055" y="670" class="label">回归测试</text>
+  <text x="1055" y="706" class="text">上线前门禁</text>
+
+  <rect class="box-blue" x="480" y="610" width="310" height="155"/>
+  <text x="635" y="670" class="label">发布决策</text>
+  <text x="635" y="706" class="text">保留 / 灰度 / 回滚</text>
+
+  <rect class="box" x="90" y="610" width="280" height="155"/>
+  <text x="230" y="670" class="label">问题归因</text>
+  <text x="230" y="706" class="text">召回 / 排序 / 生成</text>
+
+  <path class="arrow" d="M 370 330 L 478 330"/>
+  <path class="arrow" d="M 790 330 L 898 330"/>
+  <path class="arrow" d="M 1210 330 L 1318 330"/>
+  <path class="arrow" d="M 1480 410 L 1480 608"/>
+  <path class="arrow" d="M 1320 688 L 1212 688"/>
+  <path class="arrow" d="M 900 688 L 792 688"/>
+  <path class="arrow" d="M 480 688 L 372 688"/>
+  <path class="arrow-dash" d="M 230 610 L 230 402"/>
+
+  <text x="90" y="930" class="caption">图 9-1 RAG 从问题归因到上线回归的工程优化闭环</text>
+</svg>
