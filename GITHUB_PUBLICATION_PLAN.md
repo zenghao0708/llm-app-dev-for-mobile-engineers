@@ -67,7 +67,7 @@ docs/
 - GitHub Pages 导航配置，如 `mkdocs.yml`
 - `.github/ISSUE_TEMPLATE/chapter-proposal.yml` 中的相关说明，如果章节调整流程发生变化
 
-当前仓库还不是 Git 仓库。正式公开前建议先初始化 Git，完成一次本地验证，再创建 GitHub 公开仓库并推送 `main` 分支。
+当前仓库已初始化 Git，并已推送到公开仓库 `zenghao0708/llm-app-dev-for-mobile-engineers` 的 `main` 分支。后续发布前仍应完成一次本地验证，并确认 GitHub Actions 通过。
 
 ## 章节增删流程
 
@@ -103,6 +103,12 @@ docs/
 - 公开完整目录、前言、样章和配套代码。
 - 公开勘误、更新日志和运行说明。
 - 非样章正文只保留摘要或学习路线。
+
+当前仓库采用分开授权声明：
+
+- 示例代码、测试和工具脚本：MIT License，见 `LICENSE-CODE`。
+- 书稿正文、图表和配图规划：CC BY-NC-SA 4.0，见 `LICENSE-CONTENT.md`。
+- 第三方截图、商标、外部引用资料和未来出版社正式版本不自动纳入上述授权。
 
 ## Issue 分类建议
 

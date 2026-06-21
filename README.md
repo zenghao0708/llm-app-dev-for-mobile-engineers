@@ -172,7 +172,7 @@ xmllint --noout manuscript/assets/diagrams/*.svg examples/mobile-knowledge-assis
 
 建议暂按以下原则维护：
 
-- 书稿正文和示例代码分开授权。
+- 书稿正文和示例代码分开授权，具体见 `LICENSE.md`。
 - 真实 API Key、内部域名、真实用户数据不得进入仓库。
 - 章节增删必须同步更新 `manuscript/contents.md` 和 `GITHUB_PUBLICATION_PLAN.md`。
 - 章节顺序以 `manuscript/book-manifest.json` 为准，使用 `tools/manage_chapters.py` 做增删改查。

@@ -6,6 +6,7 @@
 
 - 新增 GitHub 公开仓库发布方案，说明仓库命名、目录结构、章节增删流程、授权建议和发布阶段。
 - 新增根目录 README、贡献说明、勘误入口和 `.gitignore`，为公开仓库做准备。
+- 新增 `LICENSE.md`、`LICENSE-CODE` 和 `LICENSE-CONTENT.md`，明确示例代码与书稿内容分开授权。
 - 新增 GitHub Actions 校验流程和 Issue 表单，覆盖环境自检、单元测试、代码编译、SVG 校验、勘误和章节调整建议。
 - 新增 `manuscript/book-manifest.json` 和 `tools/manage_chapters.py`，支持章节清单校验以及章节 list/show/add/rename/remove。
 - 新增整书 Markdown 构建脚本 `tools/build_book.py` 和链接校验测试，用于生成可打开的 `build/book.md` 审校稿。
