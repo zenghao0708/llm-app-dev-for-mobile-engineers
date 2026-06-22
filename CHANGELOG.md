@@ -10,6 +10,7 @@
 - 新增 GitHub Actions 校验流程和 Issue 表单，覆盖环境自检、单元测试、代码编译、SVG 校验、勘误和章节调整建议。
 - 新增 `manuscript/book-manifest.json` 和 `tools/manage_chapters.py`，支持章节清单校验以及章节 list/show/add/rename/remove。
 - 新增整书 Markdown 构建脚本 `tools/build_book.py` 和链接校验测试，用于生成可打开的 `build/book.md` 审校稿。
+- 新增 EPUB 3 构建脚本 `tools/build_epub.py`，输出支持目录、标题锚点、SVG 图表和阅读器笔记的 `build/ebooks/llm-app-dev-for-mobile-engineers.epub`。
 - 补齐附录 A、B、D、E，形成术语表、Prompt 模板库、常见故障排查清单和延伸阅读资料来源。
 - 扩写第 1 章“认识大模型”，补充 Token、上下文窗口、下一 Token 预测、移动端调用链路和可运行本地知识助手示例。
 - 扩写第 3 章“Python 服务端环境与移动端接入准备”，新增开发环境检查脚本、测试和本地开发环境 SVG 图。

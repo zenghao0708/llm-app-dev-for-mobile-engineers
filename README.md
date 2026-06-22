@@ -36,6 +36,14 @@ python3 -m unittest discover -s tests
 
 输出文件为 `build/book.md`。这是由 `manuscript/` 源文件生成的审校稿，正式修改仍应回到章节和附录源文件中完成。
 
+生成 EPUB 3 电子书：
+
+```bash
+python3 tools/build_epub.py
+```
+
+输出文件为 `build/ebooks/llm-app-dev-for-mobile-engineers.epub`。EPUB 产物包含阅读器目录、章节 XHTML 拆分、标题锚点和 SVG 图表资源，适合在 Apple Books、Calibre、Thorium Reader 等阅读器中做笔记、高亮和跳转。
+
 ## 章节维护
 
 整书顺序由 `manuscript/book-manifest.json` 维护，构建脚本会按该清单合并前言、目录、章节和附录。常用命令：

@@ -7,6 +7,7 @@
 ```bash
 python3 tools/manage_chapters.py validate
 python3 tools/build_book.py
+python3 tools/build_epub.py
 python3 -m unittest discover -s tests
 
 cd examples/mobile-knowledge-assistant
@@ -30,7 +31,7 @@ python3 -m py_compile \
   scripts/rag_trace.py
 
 cd ../..
-python3 -m py_compile tools/build_book.py tools/manage_chapters.py
+python3 -m py_compile tools/build_book.py tools/build_epub.py tools/manage_chapters.py
 xmllint --noout manuscript/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
 ```
 

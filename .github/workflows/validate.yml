@@ -28,6 +28,9 @@ jobs:
       - name: Build whole-book manuscript
         run: python3 tools/build_book.py
 
+      - name: Build EPUB ebook
+        run: python3 tools/build_epub.py
+
       - name: Run book build tests
         run: python3 -m unittest discover -s tests
 
@@ -63,7 +66,7 @@ jobs:
             scripts/rag_trace.py
 
       - name: Compile book build tooling
-        run: python3 -m py_compile tools/build_book.py tools/manage_chapters.py
+        run: python3 -m py_compile tools/build_book.py tools/build_epub.py tools/manage_chapters.py
 
       - name: Validate SVG diagrams
         run: xmllint --noout manuscript/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
