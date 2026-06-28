@@ -4,6 +4,8 @@
 
 ## 未发布
 
+- 新增三部曲第二册《AI Coding 编程专家：面向移动端工程师的 Agent 编程、工程上下文与自动化实践》书稿骨架，包含目录、篇幅规划、风格指南、14 章章节草案和附录。
+- `tools/build_book.py` 和 `tools/build_epub.py` 支持通过 `--manifest` 构建不同书稿。
 - 新增 GitHub 公开仓库发布方案，说明仓库命名、目录结构、章节增删流程、授权建议和发布阶段。
 - 新增根目录 README、贡献说明、勘误入口和 `.gitignore`，为公开仓库做准备。
 - 新增 `LICENSE.md`、`LICENSE-CODE` 和 `LICENSE-CONTENT.md`，明确示例代码与书稿内容分开授权。

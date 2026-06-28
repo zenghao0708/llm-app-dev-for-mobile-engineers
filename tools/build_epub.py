@@ -56,9 +56,10 @@ class Asset:
 
 
 class EpubBuilder:
-    def __init__(self, output_path: Path) -> None:
+    def __init__(self, output_path: Path, manifest_path: Path = MANIFEST_PATH) -> None:
         self.output_path = output_path.resolve()
-        self.manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+        self.manifest_path = manifest_path.resolve()
+        self.manifest = json.loads(self.manifest_path.read_text(encoding="utf-8"))
         self.items = self._load_items()
         self.assets: dict[Path, Asset] = {}
         self.source_to_href = {item.source_path.resolve(): item.href for item in self.items}
@@ -671,10 +672,11 @@ img {
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build an EPUB 3 ebook from manuscript/book-manifest.json.")
+    parser.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
 
-    result = EpubBuilder(args.output).build()
+    result = EpubBuilder(args.output, args.manifest).build()
     print(f"built {result['output']}")
     print(f"sources {result['sources']}")
     print(f"assets {result['assets']}")

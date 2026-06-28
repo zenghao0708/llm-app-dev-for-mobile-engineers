@@ -25,11 +25,26 @@ jobs:
       - name: Validate book manifest
         run: python3 tools/manage_chapters.py validate
 
+      - name: Validate second book manifest
+        run: python3 tools/manage_chapters.py --manifest books/02-ai-coding-mobile-engineers/book-manifest.json validate
+
       - name: Build whole-book manuscript
         run: python3 tools/build_book.py
 
+      - name: Build second book manuscript
+        run: |
+          python3 tools/build_book.py \
+            --manifest books/02-ai-coding-mobile-engineers/book-manifest.json \
+            --output build/book-02-ai-coding-mobile-engineers.md
+
       - name: Build EPUB ebook
         run: python3 tools/build_epub.py
+
+      - name: Build second book EPUB ebook
+        run: |
+          python3 tools/build_epub.py \
+            --manifest books/02-ai-coding-mobile-engineers/book-manifest.json \
+            --output build/ebooks/ai-coding-mobile-engineers.epub
 
       - name: Run book build tests
         run: python3 -m unittest discover -s tests

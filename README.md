@@ -10,6 +10,7 @@
 - 当前书稿：约 18.6 万字符，其中章节正文约 16.6 万字符；第 1、2、3、4、5、6、7、8、9、10、11、12、13、14、15、16 章已按样章标准重点扩写，附录 A-E 已补齐。终审阶段需要压缩重复段落，使正式出版稿回到目标篇幅。
 - 配套工程：`examples/mobile-knowledge-assistant/` 已包含可运行的 Python 服务端、开发环境检查、提示词契约检查、结构化输出与工具调用、RAG 检索、RAG 评测、答案质量评测、成本、性能与稳定性报表、多模态截图 payload、只读文件分析 Agent、周报工作流、SSE 流式输出、取消请求、RAG Trace 和自动化测试。
 - 发布计划：见 `GITHUB_PUBLICATION_PLAN.md`。
+- 三部曲第二册《AI Coding 编程专家》已建立书稿骨架，见 `books/02-ai-coding-mobile-engineers/`。
 
 ## 目录
 
@@ -22,6 +23,9 @@ manuscript/
 examples/
   mobile-knowledge-assistant/
                          可运行的移动端知识助手服务端示例
+books/
+  02-ai-coding-mobile-engineers/
+                         第二册：面向移动端工程师的 AI coding 进阶书稿
 ```
 
 ## 本地验证
@@ -43,6 +47,18 @@ python3 tools/build_epub.py
 ```
 
 输出文件为 `build/ebooks/llm-app-dev-for-mobile-engineers.epub`。EPUB 产物包含阅读器目录、章节 XHTML 拆分、标题锚点和高清 PNG 图表资源，适合在 Apple Books、Calibre、Thorium Reader 等阅读器中做笔记、高亮和跳转。构建脚本会优先把 SVG 图表栅格化为 PNG，避免部分阅读器无法渲染 SVG 中文字体。
+
+构建第二册书稿：
+
+```bash
+python3 tools/manage_chapters.py --manifest books/02-ai-coding-mobile-engineers/book-manifest.json validate
+python3 tools/build_book.py \
+  --manifest books/02-ai-coding-mobile-engineers/book-manifest.json \
+  --output build/book-02-ai-coding-mobile-engineers.md
+python3 tools/build_epub.py \
+  --manifest books/02-ai-coding-mobile-engineers/book-manifest.json \
+  --output build/ebooks/ai-coding-mobile-engineers.epub
+```
 
 ## 章节维护
 

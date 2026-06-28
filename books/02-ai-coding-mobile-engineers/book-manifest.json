@@ -1,0 +1,172 @@
+{
+  "title": "AI Coding 编程专家",
+  "subtitle": "面向移动端工程师的 Agent 编程、工程上下文与自动化实践",
+  "audience": "移动端开发工程师",
+  "series": "大模型应用开发三部曲",
+  "volume": 2,
+  "target_length_cn_chars": 100000,
+  "source_order": [
+    {
+      "id": "book-info",
+      "type": "front-matter",
+      "title": "书名页与元信息",
+      "path": "books/02-ai-coding-mobile-engineers/front-matter/00-book-info.md"
+    },
+    {
+      "id": "preface",
+      "type": "front-matter",
+      "title": "前言",
+      "path": "books/02-ai-coding-mobile-engineers/front-matter/01-preface.md"
+    },
+    {
+      "id": "contents",
+      "type": "contents",
+      "title": "目录",
+      "path": "books/02-ai-coding-mobile-engineers/contents.md"
+    },
+    {
+      "id": "ch01-ai-coding-from-completion-to-agent",
+      "type": "chapter",
+      "number": 1,
+      "part": "第 1 篇 AI Coding 技术演进",
+      "title": "从代码补全到编程 Agent",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch01-ai-coding-from-completion-to-agent.md",
+      "target_length_cn_chars": 6500
+    },
+    {
+      "id": "ch02-agentic-coding-capability-map",
+      "type": "chapter",
+      "number": 2,
+      "part": "第 1 篇 AI Coding 技术演进",
+      "title": "Agentic Coding 的能力地图",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch02-agentic-coding-capability-map.md",
+      "target_length_cn_chars": 6500
+    },
+    {
+      "id": "ch03-mobile-ai-coding-workspace",
+      "type": "chapter",
+      "number": 3,
+      "part": "第 1 篇 AI Coding 技术演进",
+      "title": "移动端 AI Coding 工作区",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch03-mobile-ai-coding-workspace.md",
+      "target_length_cn_chars": 6500
+    },
+    {
+      "id": "ch04-prompt-engineering-for-coding",
+      "type": "chapter",
+      "number": 4,
+      "part": "第 2 篇 四类工程能力",
+      "title": "Prompt Engineering：把编程任务说清楚",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch04-prompt-engineering-for-coding.md",
+      "target_length_cn_chars": 7000
+    },
+    {
+      "id": "ch05-context-engineering-for-repositories",
+      "type": "chapter",
+      "number": 5,
+      "part": "第 2 篇 四类工程能力",
+      "title": "Context Engineering：组织仓库上下文",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch05-context-engineering-for-repositories.md",
+      "target_length_cn_chars": 7500
+    },
+    {
+      "id": "ch06-harness-engineering",
+      "type": "chapter",
+      "number": 6,
+      "part": "第 2 篇 四类工程能力",
+      "title": "Harness Engineering：为 Agent 准备工程护栏",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch06-harness-engineering.md",
+      "target_length_cn_chars": 7500
+    },
+    {
+      "id": "ch07-loop-engineering",
+      "type": "chapter",
+      "number": 7,
+      "part": "第 2 篇 四类工程能力",
+      "title": "Loop Engineering：设计可收敛的反馈循环",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch07-loop-engineering.md",
+      "target_length_cn_chars": 7500
+    },
+    {
+      "id": "ch08-ai-coding-for-ios-android",
+      "type": "chapter",
+      "number": 8,
+      "part": "第 3 篇 移动端真实场景",
+      "title": "iOS 与 Android 项目的 AI Coding 方法",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch08-ai-coding-for-ios-android.md",
+      "target_length_cn_chars": 7000
+    },
+    {
+      "id": "ch09-cross-platform-ai-coding",
+      "type": "chapter",
+      "number": 9,
+      "part": "第 3 篇 移动端真实场景",
+      "title": "Flutter 与 React Native 的跨端协作",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch09-cross-platform-ai-coding.md",
+      "target_length_cn_chars": 6500
+    },
+    {
+      "id": "ch10-debugging-refactoring-testing",
+      "type": "chapter",
+      "number": 10,
+      "part": "第 3 篇 移动端真实场景",
+      "title": "调试、重构与测试自动化",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch10-debugging-refactoring-testing.md",
+      "target_length_cn_chars": 7500
+    },
+    {
+      "id": "ch11-mcp-tools-hooks-skills",
+      "type": "chapter",
+      "number": 11,
+      "part": "第 4 篇 Agent 工程化",
+      "title": "MCP、工具、Hooks 与 Skills",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch11-mcp-tools-hooks-skills.md",
+      "target_length_cn_chars": 7500
+    },
+    {
+      "id": "ch12-security-permission-and-governance",
+      "type": "chapter",
+      "number": 12,
+      "part": "第 4 篇 Agent 工程化",
+      "title": "权限、安全与团队治理",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch12-security-permission-and-governance.md",
+      "target_length_cn_chars": 7000
+    },
+    {
+      "id": "ch13-evaluation-of-ai-coding",
+      "type": "chapter",
+      "number": 13,
+      "part": "第 4 篇 Agent 工程化",
+      "title": "AI Coding 效果评测",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch13-evaluation-of-ai-coding.md",
+      "target_length_cn_chars": 7000
+    },
+    {
+      "id": "ch14-capstone-mobile-refactor-agent",
+      "type": "chapter",
+      "number": 14,
+      "part": "第 5 篇 综合项目",
+      "title": "综合项目：移动端重构 Agent 工作流",
+      "path": "books/02-ai-coding-mobile-engineers/chapters/ch14-capstone-mobile-refactor-agent.md",
+      "target_length_cn_chars": 8500
+    },
+    {
+      "id": "appendix-a-glossary",
+      "type": "back-matter",
+      "title": "附录 A AI Coding 术语表",
+      "path": "books/02-ai-coding-mobile-engineers/back-matter/appendix-a-glossary.md"
+    },
+    {
+      "id": "appendix-b-playbooks",
+      "type": "back-matter",
+      "title": "附录 B 移动端 AI Coding Playbook",
+      "path": "books/02-ai-coding-mobile-engineers/back-matter/appendix-b-playbooks.md"
+    },
+    {
+      "id": "appendix-c-references",
+      "type": "back-matter",
+      "title": "附录 C 资料来源与事实核验",
+      "path": "books/02-ai-coding-mobile-engineers/back-matter/appendix-c-references.md"
+    }
+  ]
+}
