@@ -2,6 +2,8 @@
 
 本附录列出第二册初稿写作时使用的官方资料。正式出版前应重新打开链接核验工具版本、命令、截图和能力边界。
 
+本次增补核验日期：2026-06-28。核验目的不是追逐每个界面细节，而是确认书中关于 agentic coding 的核心判断仍有官方资料支撑：AI coding 工具正在从代码片段生成，演进到读取仓库、编辑文件、运行命令、接入工具、参与 Git/PR 流程和支持更长工程循环。
+
 ## OpenAI / Codex
 
 - Introducing Codex：<https://openai.com/index/introducing-codex/>
@@ -12,6 +14,12 @@
 - Codex Subagents：<https://developers.openai.com/codex/subagents>
 - Codex Hooks：<https://developers.openai.com/codex/hooks>
 - Codex Skills：<https://developers.openai.com/codex/skills>
+
+核验要点：
+
+- Codex 的官方资料将其放在“软件工程 agent”的语境中，而不是单纯代码补全工具。
+- Codex 相关文档强调 CLI、云端任务、仓库上下文、MCP、hooks、skills、subagents 等工程化入口。
+- 本书将这些能力解释为移动端团队需要管理的上下文、权限、验证和协作问题，而不是直接照搬某个版本的按钮或界面。
 
 ## Anthropic / Claude Code
 
@@ -24,6 +32,25 @@
 - Claude Code MCP：<https://docs.anthropic.com/en/docs/claude-code/mcp>
 - Claude Code auto mode：<https://www.anthropic.com/engineering/claude-code-auto-mode>
 - Claude Agent SDK：<https://docs.anthropic.com/en/docs/claude-code/sdk>
+
+核验要点：
+
+- Claude Code 官方资料明确把它定位为面向终端和真实代码库的 agentic coding 工具。
+- Anthropic 工程文章持续讨论 context engineering、harness、长任务 agent 和 SDK 等主题，这与本书的 Prompt、Context、Harness、Loop 主线一致。
+- 本书在引用这些资料时，尽量把“官方事实”和“移动端工程建议”分开：官方事实用于说明工具能力，工程建议用于说明移动端团队如何设置边界。
+
+## 本书中的事实与推断边界
+
+写作 AI coding 主题时，最容易出现的问题是把工具宣传语直接写成工程结论。为了避免这个问题，本书按下面方式处理：
+
+| 类型 | 例子 | 写法 |
+| --- | --- | --- |
+| 官方事实 | 某工具提供 MCP、hooks、CLI 或 SDK | 引用官方资料，并提醒出版前复核 |
+| 作者推断 | 移动端团队应建立高风险文件清单 | 作为工程建议，不说成官方要求 |
+| 经验总结 | Agent 适合可验证任务，不适合无边界重构 | 结合案例解释适用条件 |
+| 出版风险 | 工具按钮、命令、套餐、模型名变化 | 避免写死，必要时标注核验日期 |
+
+读者在后续使用本书时，也应保持同样边界：把官方文档用于确认工具能力，把团队自己的测试、权限和发版规则用于判断能否落地。
 
 ## 出版前核验清单
 
