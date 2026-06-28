@@ -182,6 +182,112 @@ scripts/
 
 对移动端团队来说，尤其要注意设计稿、日志平台和发布系统。这些系统常包含商业信息和用户信息，不能因为 agent 需要上下文就无限开放。
 
+## MCP 接入案例：崩溃平台
+
+假设团队希望 agent 能分析线上崩溃。最直接的做法是让工程师复制崩溃平台页面给 agent，但这会带来两个问题：页面包含大量噪声，且可能混有用户信息。
+
+更好的做法是提供一个受控工具：
+
+```text
+tool: get_mobile_crash_summary
+input:
+  crash_id: string
+output:
+  app_version: string
+  platform: iOS | Android
+  os_version: string
+  device_model: string
+  top_frames: string[]
+  stack: string[]
+  sample_count: number
+  first_seen: string
+  last_seen: string
+  redacted: true
+```
+
+这个工具只返回分析所需字段，不返回用户手机号、完整设备标识、真实 token 或原始请求体。Agent 可以基于结构化结果定位文件和提出假设，但无法接触敏感数据。
+
+工具还应该记录审计：
+
+- 谁调用了工具。
+- 调用了哪个 crash id。
+- 返回是否已脱敏。
+- agent 是否基于结果修改了代码。
+
+MCP 或内部工具接入的关键不是“接得越多越好”，而是“接得足够窄、足够可审计”。
+
+## Hooks 配置案例：高风险文件拦截
+
+移动端项目可以在 agent 修改文件后运行检查脚本。伪代码如下：
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+changed_files="$(git diff --name-only)"
+
+if echo "$changed_files" | grep -E '(Info.plist|AndroidManifest.xml|entitlements|keystore|gradle.properties)'; then
+  echo "High-risk mobile files changed. Human review required."
+  exit 2
+fi
+
+if echo "$changed_files" | grep -E '(^|/)\\.env|secrets/|signing/'; then
+  echo "Sensitive files changed. Stop."
+  exit 1
+fi
+```
+
+这类 hook 不一定要阻止所有变更，但至少要让 agent 停下来说明原因。对团队来说，最危险的不是高风险文件被修改，而是它被悄悄修改。
+
+## Skill 设计模板
+
+每个 skill 可以采用统一结构：
+
+```text
+名称：
+- Android Compose 状态重构
+
+适用场景：
+- Compose 页面状态类过大，需要拆分 UI state 和 event。
+
+输入：
+- 目标页面文件。
+- ViewModel 文件。
+- 现有测试。
+
+禁止：
+- 不改导航结构。
+- 不新增依赖。
+- 不改埋点字段。
+
+流程：
+1. 只读分析状态字段。
+2. 输出拆分计划。
+3. 每轮只迁移一个状态组。
+4. 补测试。
+5. 运行指定命令。
+
+输出：
+- 修改文件。
+- 测试结果。
+- 仍需人工确认的问题。
+```
+
+统一 skill 模板有利于团队复用，也便于评测不同 skill 的效果。
+
+## 工具接入的反模式
+
+常见反模式包括：
+
+- 把整个数据库查询权限给 agent。
+- 把完整日志平台页面原样返回。
+- 让 agent 能直接触发发布。
+- 工具输出没有结构，只有大段自然语言。
+- 没有审计记录。
+- 工具失败时返回不明确，导致 agent 猜测。
+
+这些问题会让 agent 看似更强，实际上更不可控。正确路线是从低风险、只读、结构化工具开始，逐步扩展。
+
 ## 本章小结
 
 工具、hooks 和 skills 让 AI coding 从“个人提示词技巧”变成“团队工程能力”。MCP 负责连接上下文和工具，hooks 负责把校验嵌入流程，skills 负责沉淀团队经验。移动端团队不必一开始就建设复杂平台，但至少要有项目地图、高风险文件清单、标准命令和审查模板。
