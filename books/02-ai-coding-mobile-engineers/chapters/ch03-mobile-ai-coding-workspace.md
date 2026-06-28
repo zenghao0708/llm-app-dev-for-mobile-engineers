@@ -235,6 +235,73 @@ UI -> ViewModel -> Repository -> ApiClient -> NetworkSession
 
 如果这些都没有准备好，建议先不要让 agent 大范围改代码。可以从只读分析、文档整理和测试补充开始。
 
+## 3.10 把 AGENTS.md 写成工程契约
+
+`AGENTS.md` 不应该只是几句礼貌提示。它应该像工程契约一样，告诉 agent 如何在仓库中工作。
+
+建议包含：
+
+- 项目类型：iOS、Android、Flutter、React Native 或混合项目。
+- 常用命令：测试、lint、构建、格式化。
+- 禁止命令：删除、强推、发布、打印环境变量。
+- 高风险文件：签名、权限、依赖、发布配置。
+- 输出要求：每轮说明修改、验证和风险。
+- 失败处理：最多尝试几轮，什么时候停止并请求人工确认。
+
+示例：
+
+```text
+本仓库是 Android + Flutter 混合项目。
+
+允许：
+- 修改 lib/、app/src/main/、app/src/test/ 中与任务相关的文件。
+- 运行 flutter test、./gradlew testDebugUnitTest。
+
+禁止：
+- 修改 keystore、signing、release、gradle.properties。
+- 执行 git reset --hard、git push --force、release 脚本。
+- 打印环境变量或读取 .env.local。
+
+输出：
+- 修改文件列表。
+- 执行过的命令和结果。
+- 未验证项。
+- 需要人工确认的风险。
+```
+
+这类规则越具体，agent 越容易遵守。模糊的“注意安全”没有工程价值。
+
+## 3.11 为移动端准备快速验证入口
+
+很多移动端项目验证很慢。完整 iOS 构建可能需要数分钟，Android 多 flavor 测试可能更久，React Native 还可能受到包管理和缓存影响。如果没有快速验证入口，agent 往往会跳过测试，或者只运行最方便但不相关的命令。
+
+建议为每类任务准备快速命令：
+
+| 任务 | 快速验证 |
+| --- | --- |
+| ViewModel 修改 | 对应单元测试 |
+| 网络 mapper 修改 | mapper 测试 + 少量 repository 测试 |
+| UI 组件拆分 | snapshot/widget/Compose test |
+| 本地化修改 | key 检查脚本 |
+| 依赖修改 | 最小 debug build |
+| 权限修改 | 配置检查 + 人工确认 |
+
+这些命令应写进 README 或 `docs/ai-coding/commands.md`。Agent 不应该猜测试命令，团队也不应该每次人工重复解释。
+
+## 3.12 工作区反模式
+
+不适合 agent 的工作区通常有几个特征：
+
+- README 过期，命令跑不通。
+- 测试依赖个人机器状态。
+- 构建脚本会读取真实生产凭据。
+- 高风险文件没有清单。
+- 模块边界只存在于老同事脑子里。
+- CI 和本地命令不一致。
+- 文档没有日期，无法判断是否过期。
+
+这些问题对人类工程师也不好，但 agent 会把它们放大。人类遇到不确定性会停下来问同事，agent 可能会根据局部信息继续修改。因此，引入 AI coding 前整理工作区，本质上也是在提升团队基础工程质量。
+
 ## 本章小结
 
 AI coding 的第一项工程准备不是选择工具，而是整理工作区。一个对人类清楚、对脚本友好、对权限敏感的仓库，通常也更容易被 agent 正确理解。移动端团队应该把 README、AGENTS.md、脚本、架构文档和验证清单看作 AI coding harness 的一部分，而不是附属文档。

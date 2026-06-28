@@ -176,6 +176,77 @@ MCP 的价值是让 agent 不再只依赖本地文件，而能通过标准协议
 | 状态丢失 | 下一轮不知道做过什么 | 使用进度文件和 Git 检查点 |
 | 过早完成 | agent 看到部分功能就宣称完成 | 使用明确任务清单和验收项 |
 
+## 6.9 CI 等价命令清单
+
+Harness 的一个重要目标，是让本地验证和 CI 尽量一致。移动端项目的 CI 往往很复杂，但可以为 agent 提供“CI 等价命令清单”。
+
+示例：
+
+```text
+docs/ai-coding/ci-equivalent.md
+
+Android:
+- ./gradlew testDebugUnitTest
+- ./gradlew ktlintCheck
+- ./gradlew assembleDebug
+
+iOS:
+- xcodebuild test -scheme App -destination 'platform=iOS Simulator,name=iPhone 16'
+- swiftlint
+
+Flutter:
+- flutter analyze
+- flutter test
+
+React Native:
+- yarn typecheck
+- yarn test
+- cd ios && pod install --repo-update  # 仅人工确认后执行
+```
+
+清单中应标注命令成本和风险：
+
+| 命令 | 成本 | 是否允许 agent 自动运行 |
+| --- | --- | --- |
+| 单元测试 | 低 | 是 |
+| lint | 低 | 是 |
+| debug build | 中 | 可按任务运行 |
+| pod install | 中 | 需要确认 |
+| release build | 高 | 默认禁止 |
+| 上传商店 | 高 | 禁止 |
+
+这样 agent 不会为了省事只跑最轻的测试，也不会误触发发布流程。
+
+## 6.10 Harness 与开发者体验
+
+Harness 如果太重，团队不会用。一个实用的 harness 应该满足：
+
+- 命令少而稳定。
+- 输出清楚。
+- 失败时能指向下一步。
+- 不依赖个人机器秘密状态。
+- 能在 CI 中复跑。
+
+例如，与其要求 agent 记住十条 Gradle 命令，不如提供一个脚本：
+
+```bash
+./scripts/check_mobile_change.sh --module profile
+```
+
+脚本内部可以运行对应 lint、单测和轻量构建。对 agent 和人类来说，入口都更简单。移动端项目中，构建链路本身已经够复杂，harness 应该降低复杂度，而不是制造新的复杂度。
+
+## 6.11 Harness 的演进路线
+
+团队可以按三步建设 harness：
+
+第一步，文档化。写清项目地图、命令、高风险文件和任务模板。
+
+第二步，脚本化。把常用验证、敏感文件检查、格式化和测试选择封装成脚本。
+
+第三步，平台化。通过 MCP、hooks、CI、Issue 模板和内部工具，把上下文、权限和验证接入统一流程。
+
+不要跳过前两步。没有文档和脚本，直接平台化会把混乱自动化。好的 harness 往往从几个稳定脚本开始，而不是从宏大的平台设计开始。
+
 ## 本章小结
 
 Harness Engineering 是 AI coding 从个人玩具走向团队能力的关键。它让 agent 的能力进入可控边界：知道能看什么、能改什么、能跑什么、怎么验证、什么时候停。下一章会进一步讨论如何把这些能力组织成反馈循环。

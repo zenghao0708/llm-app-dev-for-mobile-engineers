@@ -167,6 +167,77 @@ docs/ai-progress.md
 - 是否过滤用户隐私和密钥？
 - 是否为长任务保留进度摘要？
 
+## 5.10 上下文分级：公开、内部、敏感
+
+移动端团队给 agent 提供上下文时，应先做分级。
+
+| 级别 | 内容 | 处理方式 |
+| --- | --- | --- |
+| 公开 | 开源代码、公开文档、通用 API | 可直接使用 |
+| 内部 | 架构文档、Issue、接口说明、设计稿 | 按权限提供，避免外泄 |
+| 敏感 | token、用户日志、证书、生产配置 | 默认不提供，必要时脱敏 |
+
+很多团队的问题不是上下文不够，而是上下文边界不清。把崩溃日志、用户反馈、内部接口和真实 token 混在一起交给 agent，是不合格的 Context Engineering。正确做法是在工具层或脚本层先做过滤，只保留任务所需信息。
+
+例如崩溃分析需要堆栈、设备、系统版本、App 版本、时间顺序和错误码，但不需要真实手机号、cookie、精确定位和完整用户 ID。脱敏后的上下文仍然有诊断价值，也更适合纳入团队流程。
+
+## 5.11 移动端上下文包示例
+
+一个高质量上下文包可以这样组织：
+
+```text
+任务：修复 Profile 页面弱网重试后 loading 不结束。
+
+平台：
+- iOS，SwiftUI，async/await。
+
+相关文件：
+- Sources/Profile/ProfileViewModel.swift
+- Sources/Profile/ProfileView.swift
+- Sources/Network/NetworkSession.swift
+- Tests/ProfileTests/ProfileViewModelTests.swift
+
+已知事实：
+- 复现步骤：断网进入 Profile，点击重试，恢复网络前退出页面。
+- 崩溃/日志：retry task cancel 后仍回调。
+- 最近变更：网络层取消逻辑重构。
+
+禁止：
+- 不修改 Info.plist、entitlements、签名、依赖。
+- 不修改登录、支付、风控。
+
+验证：
+- 运行 ProfileViewModelTests。
+- 如果未做真机弱网验证，必须说明。
+```
+
+这个上下文包比一大段自然语言更稳定。Agent 能清楚看到事实、范围、禁止事项和验证方式。
+
+## 5.12 上下文更新节奏
+
+上下文不是一次性输入。Agent 每轮执行后，新的事实会出现：
+
+- 测试失败输出。
+- 新发现的调用方。
+- 编译错误。
+- 人工确认的产品文案。
+- 被排除的假设。
+
+Loop 中应定期更新上下文摘要。长任务尤其如此。一个好的进度摘要应该包含“已确认事实”和“未解决问题”，而不只是“我做了什么”。例如：
+
+```text
+已确认：
+- timeout 会进入 AppError.timeout。
+- Profile 页面已迁移。
+- Settings 页面测试缺少 offline case。
+
+未解决：
+- Payment 页面错误码涉及风控，暂停自动迁移。
+- Android 端埋点字段需要数据同学确认。
+```
+
+这种摘要能让下一轮 agent 避免重复探索，也能帮助人类快速审查。
+
 ## 本章小结
 
 Context Engineering 的关键是选择和组织，而不是堆砌。优秀的上下文让 agent 少猜、少改错、少跑偏。移动端团队应该把仓库地图、架构摘要、错误现场、验证命令和长任务进度作为一等工程资产。下一章讨论 agent 能力的另一个基础：Harness Engineering。
