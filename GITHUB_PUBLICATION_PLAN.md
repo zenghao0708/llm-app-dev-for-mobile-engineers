@@ -2,7 +2,7 @@
 
 ## 目标
 
-将《大模型应用开发快速入门》维护为一个公开学习型仓库，兼顾 3 个目标：
+将面向移动端工程师的大模型应用开发三部曲维护为一个公开学习型仓库，兼顾 3 个目标：
 
 1. 读者可以在线阅读书稿、运行配套代码并提交勘误。
 2. 作者可以持续增删章节、调整结构和更新示例工程。
@@ -25,10 +25,13 @@
 
 | 模块 | 建议路径 | 作用 |
 | --- | --- | --- |
-| 书稿正文 | `manuscript/` | 章节、前言、附录、配图规划 |
-| 章节清单 | `manuscript/book-manifest.json` | 维护整书构建顺序和章节元数据 |
+| 第一册书稿 | `manuscript/` | Prompt、RAG、Agent、多模态和综合项目 |
+| 第二册书稿 | `books/02-ai-coding-mobile-engineers/` | AI coding、工程上下文、Agent 编程和自动化实践 |
+| 第三册书稿 | `books/03-on-device-ai-mobile-engineers/` | 端侧模型、混合推理、隐私、性能和产品化 |
+| 章节清单 | `*/book-manifest.json` | 维护各册构建顺序和章节元数据 |
 | 章节管理工具 | `tools/manage_chapters.py` | 提供章节 list/show/add/rename/remove/validate |
 | 配套代码 | `examples/` | 可运行示例工程和测试 |
+| EPUB 产物 | `build/ebooks/` | 三册可下载电子书 |
 | 在线阅读 | `docs/` 或 MkDocs 生成站点 | 对外提供稳定阅读入口 |
 | 读者反馈 | `ERRATA.md`、GitHub Issues | 收集错别字、代码问题、内容建议 |
 | 贡献规范 | `CONTRIBUTING.md` | 说明如何提交勘误、章节建议和代码修改 |
@@ -135,7 +138,7 @@ GitHub Issues 可以使用以下标签：
 3. `v0.3-review`：完成技术审校、图表检查、代码测试和字数控制。
 4. `v1.0-publication`：与正式出版稿对齐，冻结主要章节结构。
 
-当前项目的 16 个章节已进入可读草稿状态，配套工程也具备环境自检和自动化测试；更适合按 `v0.2-readable` 候选来准备公开。进入 `v0.3-review` 前，需要重点完成技术审校、全书压缩统稿、截图补齐、授权确认和 GitHub Actions 首次通过。
+当前项目已形成三册初稿：第一册偏长，需要压缩统稿；第二册和第三册接近 10 万字目标区间。配套工程具备环境自检和自动化测试，三册 EPUB 已可生成并提交；更适合按 `v0.3-review` 候选来准备公开。进入 `v1.0-publication` 前，需要重点完成技术审校、第一册压缩统稿、截图补齐、授权确认和发布标签冻结。
 
 ## 公开前检查清单
 
@@ -143,5 +146,6 @@ GitHub Issues 可以使用以下标签：
 - 运行 `python3 tools/manage_chapters.py validate`，确认章节清单没有重复、缺失或越界路径。
 - 确认正文、图表和代码的授权边界，必要时增加单独的内容授权说明。
 - 运行 `.github/workflows/validate.yml` 中的本地等价命令，确保示例工程和 SVG 图表可验证。
-- 检查 `manuscript/contents.md`、`README.md`、`CHANGELOG.md` 和 `GITHUB_PUBLICATION_PLAN.md` 中的章节状态一致。
+- 检查 `manuscript/contents.md`、`books/*/contents.md`、`README.md`、`SERIES_PLAN.md`、`CHANGELOG.md` 和 `GITHUB_PUBLICATION_PLAN.md` 中的章节状态一致。
+- 重新生成并抽检 `build/ebooks/*.epub`，确认目录、锚点、图片和中文字体正常。
 - 检查仓库中没有真实 API Key、`.env`、本地缓存、打包产物或第三方未授权素材。

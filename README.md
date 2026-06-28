@@ -1,17 +1,18 @@
-# 大模型应用开发快速入门
+# 大模型应用开发三部曲
 
-副标题：Prompt、RAG、Agent 与工程实践
+面向移动端开发工程师的 Prompt、RAG、Agent、AI Coding 与端侧智能工程实践
 
-本仓库用于维护面向移动端开发工程师的《大模型应用开发快速入门》书稿和配套示例工程。书稿目标是帮助具备 iOS、Android、Flutter 或 React Native 基础的开发者，快速理解大模型应用开发的关键机制，并完成可运行的入门与实战项目。
+本仓库用于维护面向移动端开发工程师的大模型应用开发系列书稿、EPUB 电子书和配套示例工程。系列目标是帮助具备 iOS、Android、Flutter 或 React Native 基础的开发者，快速理解大模型应用、AI coding 和端侧智能工程的关键机制，并完成可运行的入门与实战项目。
 
 ## 当前状态
 
-- 书稿目标篇幅：约 10 万字，合理区间为 9 万-11 万字。
-- 当前书稿：约 18.6 万字符，其中章节正文约 16.6 万字符；第 1、2、3、4、5、6、7、8、9、10、11、12、13、14、15、16 章已按样章标准重点扩写，附录 A-E 已补齐。终审阶段需要压缩重复段落，使正式出版稿回到目标篇幅。
+- 系列目标篇幅：每册约 10 万字，合理区间为 9 万-11 万字。
+- 第一册《大模型应用开发快速入门》：当前约 18.1 万字符；16 章和附录 A-E 已形成完整书稿，终审阶段需要压缩重复段落，使正式出版稿回到目标篇幅。
+- 第二册《AI Coding 编程专家》：当前约 10.0 万字符；14 章、附录 A-F 和配套示例工程已形成完整初稿，见 `books/02-ai-coding-mobile-engineers/`。
+- 第三册《端侧大模型与移动智能工程》：当前约 10.0 万字符；14 章和附录 A-D 已形成完整初稿，见 `books/03-on-device-ai-mobile-engineers/`。
 - 配套工程：`examples/mobile-knowledge-assistant/` 已包含可运行的 Python 服务端、开发环境检查、提示词契约检查、结构化输出与工具调用、RAG 检索、RAG 评测、答案质量评测、成本、性能与稳定性报表、多模态截图 payload、只读文件分析 Agent、周报工作流、SSE 流式输出、取消请求、RAG Trace 和自动化测试。
 - 发布计划：见 `GITHUB_PUBLICATION_PLAN.md`。
-- 三部曲第二册《AI Coding 编程专家》已扩写为接近 10 万字的完整初稿，见 `books/02-ai-coding-mobile-engineers/`；配套示例工程见 `examples/ai-coding-mobile-refactor/`。
-- 三部曲第三册《端侧大模型与移动智能工程》已建立书稿骨架和篇幅规划，见 `books/03-on-device-ai-mobile-engineers/`。
+- 三部曲总规划：见 `SERIES_PLAN.md`。
 
 ## 目录
 
@@ -30,7 +31,7 @@ books/
   02-ai-coding-mobile-engineers/
                          第二册：面向移动端工程师的 AI coding 进阶书稿
   03-on-device-ai-mobile-engineers/
-                         第三册：端侧大模型与移动智能工程书稿骨架
+                         第三册：端侧大模型与移动智能工程书稿
 ```
 
 ## 本地验证
@@ -53,6 +54,12 @@ python3 tools/build_epub.py
 
 输出文件为 `build/ebooks/llm-app-dev-for-mobile-engineers.epub`。EPUB 产物包含阅读器目录、章节 XHTML 拆分、标题锚点和高清 PNG 图表资源，适合在 Apple Books、Calibre、Thorium Reader 等阅读器中做笔记、高亮和跳转。构建脚本会优先把 SVG 图表栅格化为 PNG，避免部分阅读器无法渲染 SVG 中文字体。
 
+当前已提交的 EPUB 产物包括：
+
+- `build/ebooks/llm-app-dev-for-mobile-engineers.epub`
+- `build/ebooks/ai-coding-mobile-engineers.epub`
+- `build/ebooks/on-device-ai-mobile-engineers.epub`
+
 构建第二册书稿：
 
 ```bash
@@ -65,7 +72,7 @@ python3 tools/build_epub.py \
   --output build/ebooks/ai-coding-mobile-engineers.epub
 ```
 
-构建第三册书稿骨架：
+构建第三册书稿：
 
 ```bash
 python3 tools/manage_chapters.py --manifest books/03-on-device-ai-mobile-engineers/book-manifest.json validate
