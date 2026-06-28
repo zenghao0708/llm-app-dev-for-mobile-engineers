@@ -182,6 +182,89 @@ docs/ai-coding/
 
 这些失败通常不是模型“不会写代码”，而是任务上下文不完整、验收条件不清楚、harness 没有覆盖跨端差异。
 
+## 跨端案例：相册选择能力接入
+
+相册选择是跨端项目中典型的高风险任务。它看起来只是“选择图片并返回 URI”，实际涉及权限、系统 API、平台差异、用户取消、文件大小、隐私文案和上传链路。
+
+正确的 agent 工作流应拆成三轮。
+
+第一轮，只读分析：
+
+```text
+请分析当前项目是否已有相册或文件选择能力。
+不要修改代码。
+输出：
+- Flutter/RN 调用入口。
+- iOS 原生实现位置。
+- Android 原生实现位置。
+- 当前权限声明。
+- 已有测试。
+- 需要人工确认的隐私文案。
+```
+
+第二轮，协议设计：
+
+```text
+请设计跨端返回结构，不要实现。
+要求包含：
+- success。
+- userCancelled。
+- permissionDenied。
+- fileTooLarge。
+- unknown。
+说明 iOS/Android 如何映射。
+```
+
+第三轮，受限实现：
+
+```text
+只实现跨端层和 mock 测试。
+不要修改 Info.plist、AndroidManifest.xml 和原生权限文件。
+如果发现必须修改权限文件，请停止并输出原因。
+```
+
+这个流程看似慢，但它把权限和平台差异提前暴露出来。跨端项目最怕 agent 直接改完 Dart/TypeScript 层，然后在原生端留下隐性缺口。
+
+## 跨端桥接协议表
+
+建议为每个平台通道维护协议表：
+
+| 字段 | 类型 | iOS 来源 | Android 来源 | 备注 |
+| --- | --- | --- | --- | --- |
+| `status` | string | enum 映射 | sealed class 映射 | success/cancel/denied/error |
+| `uri` | string? | file URL | content URI | 不直接暴露真实本地路径 |
+| `errorCode` | string? | NSError code | Exception code | 需要统一枚举 |
+| `messageKey` | string? | 本地化 key | 本地化 key | 跨端层不拼接最终文案 |
+
+协议表的价值是让 agent 有明确目标。否则它可能在 iOS 返回 `path`，在 Android 返回 `uri`，跨端层再做大量兼容判断，最终形成新的技术债。
+
+## Flutter 与 React Native 的测试差异
+
+Flutter 和 React Native 的测试工具不同，agent 任务中要写清楚：
+
+| 项目 | Flutter | React Native |
+| --- | --- | --- |
+| 单元测试 | `flutter test` | `yarn test` 或 `npm test` |
+| UI 测试 | widget test | React Native Testing Library |
+| 静态检查 | `flutter analyze` | TypeScript、ESLint |
+| 原生构建 | Xcode/Gradle | Pods/Gradle/Metro |
+| 常见缓存问题 | pub、build cache | Metro、Pods、node_modules |
+
+如果任务只涉及纯逻辑，快速测试足够。如果涉及原生模块，必须记录是否执行了原生构建。Agent 输出中要明确：“本轮只运行了 JS/Dart 测试，未验证 iOS/Android 原生构建。”这不是缺点，而是诚实的工程记录。
+
+## 跨端发版前检查
+
+跨端项目发版前可以让 agent 做只读检查：
+
+- 查找本轮是否修改 `ios/` 或 `android/`。
+- 查找是否新增权限。
+- 查找是否新增依赖和 lockfile 变化。
+- 查找是否有平台特定代码只覆盖一端。
+- 检查本地化 key 是否双端一致。
+- 汇总未运行的验证。
+
+这类任务适合 agent，因为它以搜索、归纳和清单输出为主，不需要自动修改高风险文件。
+
 ## 本章小结
 
 跨端 AI coding 的关键是双平台验证和上下文分层。Flutter 与 React Native 项目可以让 agent 高效处理 UI、状态、类型和测试，但原生桥接、权限、构建和发布配置必须提高审查级别。一个合格的跨端 prompt，不只说明“改什么”，还要说明“涉及哪些层、哪些平台必须验证、哪些文件不能自动改”。
