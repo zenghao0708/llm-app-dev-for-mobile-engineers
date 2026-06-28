@@ -9,6 +9,9 @@
 - Codex Quickstart：<https://developers.openai.com/codex/quickstart>
 - Codex MCP：<https://developers.openai.com/codex/mcp>
 - Codex changelog：<https://developers.openai.com/codex/changelog>
+- Codex Subagents：<https://developers.openai.com/codex/subagents>
+- Codex Hooks：<https://developers.openai.com/codex/hooks>
+- Codex Skills：<https://developers.openai.com/codex/skills>
 
 ## Anthropic / Claude Code
 
@@ -18,6 +21,7 @@
 - Building agents with the Claude Agent SDK：<https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk>
 - Effective harnesses for long-running agents：<https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents>
 - Claude Code hooks：<https://docs.anthropic.com/en/docs/claude-code/hooks-guide>
+- Claude Code MCP：<https://docs.anthropic.com/en/docs/claude-code/mcp>
 - Claude Code auto mode：<https://www.anthropic.com/engineering/claude-code-auto-mode>
 - Claude Agent SDK：<https://docs.anthropic.com/en/docs/claude-code/sdk>
 

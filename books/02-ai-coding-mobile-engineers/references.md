@@ -9,6 +9,9 @@
 - OpenAI Developers：Codex Quickstart，说明 Codex 默认以 Agent mode 启动，可以读文件、运行命令并写入项目目录。<https://developers.openai.com/codex/quickstart>
 - OpenAI Developers：Codex MCP，说明 MCP 可用于把模型连接到工具和上下文，Codex CLI 和 IDE extension 均支持 MCP servers。<https://developers.openai.com/codex/mcp>
 - OpenAI Developers：Codex changelog，记录插件、skills、app integrations 和 MCP server configuration 等能力变化。<https://developers.openai.com/codex/changelog>
+- OpenAI Developers：Codex Subagents，说明可以把复杂任务拆给专门的子代理处理，适合代码审查、测试、文档和专项分析等场景。<https://developers.openai.com/codex/subagents>
+- OpenAI Developers：Codex Hooks，说明可以在 agent 生命周期中触发命令，用于校验、格式化、通知和流程约束。<https://developers.openai.com/codex/hooks>
+- OpenAI Developers：Codex Skills，说明 skills 可把可复用流程、说明和脚本打包成 agent 可调用能力。<https://developers.openai.com/codex/skills>
 
 ## Anthropic / Claude Code
 
@@ -18,6 +21,7 @@
 - Anthropic Engineering：Building agents with the Claude Agent SDK，说明 Claude Code 常见反馈循环是 gather context -> take action -> verify work -> repeat。<https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk>
 - Anthropic Engineering：Effective harnesses for long-running agents，讨论长任务 agent 的 harness 和环境管理。<https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents>
 - Claude Code Docs：Hooks，说明可以在 Claude Code 编辑文件、完成任务或需要输入时自动运行 shell commands，用于格式化、通知、校验命令和执行规则。<https://docs.anthropic.com/en/docs/claude-code/hooks-guide>
+- Claude Code Docs：MCP，说明 Claude Code 可通过 MCP 连接本地或远程工具与数据源。<https://docs.anthropic.com/en/docs/claude-code/mcp>
 - Anthropic Engineering：Claude Code auto mode，说明 permission prompts 的自动化和安全边界。<https://www.anthropic.com/engineering/claude-code-auto-mode>
 - Claude Code Docs：Agent SDK overview，说明 Agent SDK 提供与 Claude Code 相同的 tools、agent loop 和 context management，可用 Python/TypeScript 编程。<https://docs.anthropic.com/en/docs/claude-code/sdk>
 
