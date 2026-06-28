@@ -10,7 +10,10 @@
 - 第一册《大模型应用开发快速入门》：当前约 11.0 万字符；16 章和附录 A-E 已压缩为目标区间内的完整书稿，见 `books/01-llm-app-dev-for-mobile-engineers/`。
 - 第二册《AI Coding 编程专家》：当前约 10.0 万字符；14 章、附录 A-F 和配套示例工程已形成完整初稿，见 `books/02-ai-coding-mobile-engineers/`。
 - 第三册《端侧大模型与移动智能工程》：当前约 10.0 万字符；14 章和附录 A-D 已形成完整初稿，见 `books/03-on-device-ai-mobile-engineers/`。
-- 配套工程：`examples/mobile-knowledge-assistant/` 已包含可运行的 Python 服务端、开发环境检查、提示词契约检查、结构化输出与工具调用、RAG 检索、RAG 评测、答案质量评测、成本、性能与稳定性报表、多模态截图 payload、只读文件分析 Agent、周报工作流、SSE 流式输出、取消请求、RAG Trace 和自动化测试。
+- 配套工程：
+  - 第一册：`examples/01-mobile-knowledge-assistant/` 已包含可运行的 Python 服务端、开发环境检查、提示词契约检查、结构化输出与工具调用、RAG 检索、RAG 评测、答案质量评测、成本、性能与稳定性报表、多模态截图 payload、只读文件分析 Agent、周报工作流、SSE 流式输出、取消请求、RAG Trace 和自动化测试。
+  - 第二册：`examples/02-ai-coding-mobile-refactor/` 已包含可运行的移动端重构训练示例和测试。
+  - 第三册：`examples/03-on-device-ai-mobile-engineers/` 是端侧智能示例预留目录，暂不提交不可运行的伪示例。
 - 发布计划：见 `GITHUB_PUBLICATION_PLAN.md`。
 - 三部曲总规划：见 `SERIES_PLAN.md`。
 
@@ -28,10 +31,12 @@ books/02-ai-coding-mobile-engineers/
 books/03-on-device-ai-mobile-engineers/
                          第三册：端侧大模型与移动智能工程书稿
 examples/
-  mobile-knowledge-assistant/
-                         可运行的移动端知识助手服务端示例
-  ai-coding-mobile-refactor/
+  01-mobile-knowledge-assistant/
+                         第一册配套移动端知识助手服务端示例
+  02-ai-coding-mobile-refactor/
                          第二册配套 AI coding 重构训练示例
+  03-on-device-ai-mobile-engineers/
+                         第三册配套示例预留目录
 ```
 
 ## 本地验证
@@ -87,7 +92,7 @@ python3 tools/build_epub.py \
 运行第二册配套示例工程测试：
 
 ```bash
-cd examples/ai-coding-mobile-refactor
+cd examples/02-ai-coding-mobile-refactor
 PYTHONPATH=src python3 -m unittest discover -s tests
 python3 -m py_compile src/ai_refactor/*.py
 ```
@@ -110,14 +115,14 @@ python3 tools/manage_chapters.py validate
 运行配套工程测试：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 PYTHONWARNINGS=error PYTHONPATH=src python3 -m unittest discover -s tests
 ```
 
 检查脚本和服务端模块能否编译：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 -m py_compile \
   src/mobile_llm/*.py \
   scripts/answer_eval.py \
@@ -139,7 +144,7 @@ python3 -m py_compile \
 运行开发环境检查：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/dev_environment_check.py
 ```
 
@@ -148,14 +153,14 @@ python3 scripts/dev_environment_check.py
 运行 RAG 检索评测：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/rag_eval.py --top-k 3
 ```
 
 运行答案质量评测：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/answer_eval.py --min-score 0.8
 ```
 
@@ -164,7 +169,7 @@ python3 scripts/answer_eval.py --min-score 0.8
 运行提示词契约检查：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/prompt_contract_check.py
 ```
 
@@ -173,7 +178,7 @@ python3 scripts/prompt_contract_check.py
 运行结构化输出与工具调用示例：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/structured_tool_router.py \
   --message '帮我查一下订单 A1024 到哪里了' \
   --user-id user_001
@@ -184,7 +189,7 @@ python3 scripts/structured_tool_router.py \
 运行成本、性能与稳定性报表：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/ops_report.py --latency-slo-ms 3000
 ```
 
@@ -193,7 +198,7 @@ python3 scripts/ops_report.py --latency-slo-ms 3000
 运行只读文件分析 Agent：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/file_triage_agent.py \
   --goal '检查移动端知识库是否覆盖密钥、流式输出、权限和脱敏要求' \
   --keyword 'API Key' \
@@ -205,21 +210,21 @@ python3 scripts/file_triage_agent.py \
 运行周报工作流：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/weekly_report_workflow.py
 ```
 
 运行多模态截图工单 payload 生成器：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/image_ticket_payload.py --omit-image-data
 ```
 
 检查 SVG 图表：
 
 ```bash
-xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
+xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg examples/01-mobile-knowledge-assistant/data/multimodal/login_error.svg
 ```
 
 ## 公开仓库说明

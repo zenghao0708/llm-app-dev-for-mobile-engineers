@@ -10,8 +10,8 @@
 
 | 册次 | 书名 | 核心问题 | 状态 |
 | --- | --- | --- | --- |
-| 第一册 | 大模型应用开发快速入门 | 如何理解 Prompt、RAG、Agent、多模态、评测、安全和综合项目 | 已压缩为约 11 万字符完整书稿，配套 `mobile-knowledge-assistant` 示例 |
-| 第二册 | AI Coding 编程专家 | 如何把 Claude Code、Codex 等 agentic coding 工具变成可控工程能力 | 已扩写为接近 10 万字完整初稿，配套 `ai-coding-mobile-refactor` 示例 |
+| 第一册 | 大模型应用开发快速入门 | 如何理解 Prompt、RAG、Agent、多模态、评测、安全和综合项目 | 已压缩为约 11 万字符完整书稿，配套 `examples/01-mobile-knowledge-assistant` 示例 |
+| 第二册 | AI Coding 编程专家 | 如何把 Claude Code、Codex 等 agentic coding 工具变成可控工程能力 | 已扩写为接近 10 万字完整初稿，配套 `examples/02-ai-coding-mobile-refactor` 示例 |
 | 第三册 | 端侧大模型与移动智能工程 | 如何把模型能力落到移动端本地推理、混合架构、隐私、性能和产品化 | 已扩写为接近 10 万字完整初稿 |
 
 ## 篇幅原则

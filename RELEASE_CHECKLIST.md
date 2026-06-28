@@ -10,7 +10,7 @@ python3 tools/build_book.py
 python3 tools/build_epub.py
 python3 -m unittest discover -s tests
 
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/dev_environment_check.py
 PYTHONPATH=src PYTHONWARNINGS=error python3 -m unittest discover -s tests
 python3 -m py_compile \
@@ -32,7 +32,7 @@ python3 -m py_compile \
 
 cd ../..
 python3 -m py_compile tools/build_book.py tools/build_epub.py tools/manage_chapters.py
-xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
+xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg examples/01-mobile-knowledge-assistant/data/multimodal/login_error.svg
 ```
 
 ## 章节结构检查

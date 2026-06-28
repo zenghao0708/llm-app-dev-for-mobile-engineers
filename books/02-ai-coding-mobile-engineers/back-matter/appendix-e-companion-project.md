@@ -1,6 +1,6 @@
 # 附录 E 配套示例工程说明
 
-本书第二册配套一个小型可运行示例工程：`examples/ai-coding-mobile-refactor/`。它不是完整 iOS 或 Android App，而是用 Python 模拟移动端项目中最常见的三层结构：网络结果、统一错误模型、页面 ViewModel。选择 Python 的原因是降低读者运行门槛，让练习重点放在 AI coding 工作流上，而不是安装平台 SDK。
+本书第二册配套一个小型可运行示例工程：`examples/02-ai-coding-mobile-refactor/`。它不是完整 iOS 或 Android App，而是用 Python 模拟移动端项目中最常见的三层结构：网络结果、统一错误模型、页面 ViewModel。选择 Python 的原因是降低读者运行门槛，让练习重点放在 AI coding 工作流上，而不是安装平台 SDK。
 
 ## 示例工程目标
 
@@ -17,7 +17,7 @@
 ## 目录结构
 
 ```text
-examples/ai-coding-mobile-refactor/
+examples/02-ai-coding-mobile-refactor/
   README.md
   docs/
     ai-task.md
@@ -44,7 +44,7 @@ examples/ai-coding-mobile-refactor/
 ## 运行命令
 
 ```bash
-cd examples/ai-coding-mobile-refactor
+cd examples/02-ai-coding-mobile-refactor
 PYTHONPATH=src python3 -m unittest discover -s tests
 python3 -m py_compile src/ai_refactor/*.py
 ```
@@ -56,7 +56,7 @@ python3 -m py_compile src/ai_refactor/*.py
 Prompt：
 
 ```text
-请只读分析 examples/ai-coding-mobile-refactor。
+请只读分析 examples/02-ai-coding-mobile-refactor。
 不要修改代码。
 输出：
 - 模块职责。

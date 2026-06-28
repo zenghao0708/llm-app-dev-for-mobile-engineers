@@ -97,10 +97,10 @@ AI coding 领域术语混杂，书稿中要保持一致。
 - `.env.example` 只包含占位符。
 - 不提交缓存、虚拟环境、构建产物和本地凭据。
 
-配套示例工程 `examples/ai-coding-mobile-refactor/` 应检查：
+配套示例工程 `examples/02-ai-coding-mobile-refactor/` 应检查：
 
 ```bash
-cd examples/ai-coding-mobile-refactor
+cd examples/02-ai-coding-mobile-refactor
 PYTHONPATH=src python3 -m unittest discover -s tests
 python3 -m py_compile src/ai_refactor/*.py
 ```

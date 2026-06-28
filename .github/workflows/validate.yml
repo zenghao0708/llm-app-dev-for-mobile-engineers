@@ -65,25 +65,25 @@ jobs:
         run: python3 -m unittest discover -s tests
 
       - name: Run development environment check
-        working-directory: examples/mobile-knowledge-assistant
+        working-directory: examples/01-mobile-knowledge-assistant
         run: python3 scripts/dev_environment_check.py
 
       - name: Run unit tests
-        working-directory: examples/mobile-knowledge-assistant
+        working-directory: examples/01-mobile-knowledge-assistant
         env:
           PYTHONPATH: src
           PYTHONWARNINGS: error
         run: python3 -m unittest discover -s tests
 
       - name: Run AI coding refactor example tests
-        working-directory: examples/ai-coding-mobile-refactor
+        working-directory: examples/02-ai-coding-mobile-refactor
         env:
           PYTHONPATH: src
           PYTHONWARNINGS: error
         run: python3 -m unittest discover -s tests
 
       - name: Compile Python examples
-        working-directory: examples/mobile-knowledge-assistant
+        working-directory: examples/01-mobile-knowledge-assistant
         run: |
           python3 -m py_compile \
             src/mobile_llm/*.py \
@@ -103,11 +103,11 @@ jobs:
             scripts/rag_trace.py
 
       - name: Compile AI coding refactor example
-        working-directory: examples/ai-coding-mobile-refactor
+        working-directory: examples/02-ai-coding-mobile-refactor
         run: python3 -m py_compile src/ai_refactor/*.py
 
       - name: Compile book build tooling
         run: python3 -m py_compile tools/build_book.py tools/build_epub.py tools/manage_chapters.py
 
       - name: Validate SVG diagrams
-        run: xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
+        run: xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg examples/01-mobile-knowledge-assistant/data/multimodal/login_error.svg

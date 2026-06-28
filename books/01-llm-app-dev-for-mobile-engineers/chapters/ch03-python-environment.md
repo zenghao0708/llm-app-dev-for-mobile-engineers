@@ -4,7 +4,7 @@
 
 第 1 章解释了大模型应用为什么需要自有服务端，第 2 章解释了 Token、上下文窗口、采样和幻觉等基础机制。本章开始把这些认知落到开发环境中：怎样准备一个可以运行、可以测试、不会泄露密钥的 Python 服务端；怎样让移动端只调用自有 API；怎样在没有真实模型密钥的情况下先跑通完整链路；怎样在需要时切换到真实模型网关。
 
-本书配套工程位于 `examples/mobile-knowledge-assistant/`。它不是伪代码项目，而是一个可运行的本地服务端示例：默认使用 `mock` provider，不需要 API 密钥；切换 `openai_compatible` provider 后，可以连接兼容聊天补全接口的模型服务。移动端开发者可以先用命令行和 `curl` 理解服务端边界，再把同样的 API 契约接到 iOS、Android、Flutter 或 React Native 项目中。
+本书配套工程位于 `examples/01-mobile-knowledge-assistant/`。它不是伪代码项目，而是一个可运行的本地服务端示例：默认使用 `mock` provider，不需要 API 密钥；切换 `openai_compatible` provider 后，可以连接兼容聊天补全接口的模型服务。移动端开发者可以先用命令行和 `curl` 理解服务端边界，再把同样的 API 契约接到 iOS、Android、Flutter 或 React Native 项目中。
 
 图 3-1 展示了本章需要建立的本地开发与移动端调试环境。
 
@@ -42,7 +42,7 @@
 配套工程的核心结构如下：
 
 ```text
-examples/mobile-knowledge-assistant/
+examples/01-mobile-knowledge-assistant/
   README.md
   requirements.txt
   .env.example
@@ -86,7 +86,7 @@ examples/mobile-knowledge-assistant/
 进入示例工程：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install -r requirements.txt

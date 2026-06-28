@@ -31,7 +31,7 @@ docs/
 ## 运行
 
 ```bash
-cd examples/ai-coding-mobile-refactor
+cd examples/02-ai-coding-mobile-refactor
 PYTHONPATH=src python3 -m unittest discover -s tests
 ```
 

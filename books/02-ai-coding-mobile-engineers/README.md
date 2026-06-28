@@ -48,4 +48,4 @@ books/02-ai-coding-mobile-engineers/
 
 当前版本已扩写为接近 10 万字的完整初稿，覆盖 14 章正文和附录 A-F。书稿已包含移动端真实工程案例、prompt 模板、检查清单、读者练习和配套可运行示例工程。后续出版前仍需继续做事实核验、截图补充、语言精修和示例工程扩展。
 
-配套示例工程位于 `examples/ai-coding-mobile-refactor/`，用于训练统一网络错误模型迁移、ViewModel 状态测试、PR 摘要和风险说明。
+配套示例工程位于 `examples/02-ai-coding-mobile-refactor/`，用于训练统一网络错误模型迁移、ViewModel 状态测试、PR 摘要和风险说明。

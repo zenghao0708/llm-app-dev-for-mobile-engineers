@@ -29,7 +29,7 @@
 ## 运行
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 -m venv .venv
 source .venv/bin/activate
 PYTHONPATH=src python3 -m mobile_llm.app
@@ -72,7 +72,7 @@ python3 scripts/sse_client.py \
 ## 测试
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 PYTHONPATH=src python3 -m unittest discover -s tests
 ```
 

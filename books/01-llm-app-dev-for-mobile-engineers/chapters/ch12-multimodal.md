@@ -180,7 +180,7 @@ def inspect_image(path: Path, max_bytes: int = DEFAULT_MAX_BYTES, max_side: int 
 进入配套工程：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 ```
 
 运行默认示例：

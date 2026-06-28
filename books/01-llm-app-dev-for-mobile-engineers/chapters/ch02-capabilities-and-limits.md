@@ -219,7 +219,7 @@ Temperature 控制概率分布的“尖锐程度”。温度低时，高概率 T
 配套工程提供了 temperature 采样实验：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/sampling_temperature_experiment.py
 ```
 

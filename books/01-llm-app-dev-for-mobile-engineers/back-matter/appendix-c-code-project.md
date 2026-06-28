@@ -14,7 +14,7 @@
 ## C.2 推荐项目结构
 
 ```text
-examples/mobile-knowledge-assistant/
+examples/01-mobile-knowledge-assistant/
   README.md
   .env.example
   requirements.txt

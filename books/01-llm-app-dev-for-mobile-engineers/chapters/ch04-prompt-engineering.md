@@ -8,7 +8,7 @@
 
 ![图 4-1 提示词的六个组成部分](../assets/diagrams/prompt-structure.svg)
 
-配套脚本：`examples/mobile-knowledge-assistant/scripts/prompt_contract_check.py`
+配套脚本：`examples/01-mobile-knowledge-assistant/scripts/prompt_contract_check.py`
 
 ## 学习目标
 
@@ -75,7 +75,7 @@
 运行配套脚本：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/prompt_contract_check.py
 ```
 

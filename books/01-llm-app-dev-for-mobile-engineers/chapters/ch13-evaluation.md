@@ -4,7 +4,7 @@
 
 大模型应用不能只靠“看起来回答得不错”判断质量。模型输出有随机性，知识库会更新，Prompt 会迭代，模型版本会变化，移动端状态也会影响体验。没有评测，团队很难知道一次修改是变好、变差还是只是在少数样本上看起来更顺。
 
-配套脚本：`examples/mobile-knowledge-assistant/scripts/rag_eval.py`、`scripts/answer_eval.py`
+配套脚本：`examples/01-mobile-knowledge-assistant/scripts/rag_eval.py`、`scripts/answer_eval.py`
 
 ## 学习目标
 
@@ -49,7 +49,7 @@ RAG 质量首先取决于检索。`scripts/rag_eval.py` 读取 `data/eval/rag_ev
 运行：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/rag_eval.py --top-k 3
 ```
 

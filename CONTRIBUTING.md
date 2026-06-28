@@ -51,7 +51,7 @@ python3 tools/manage_chapters.py validate
 配套工程测试命令：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 PYTHONWARNINGS=error PYTHONPATH=src python3 -m unittest discover -s tests
 python3 -m py_compile \
   src/mobile_llm/*.py \
@@ -74,7 +74,7 @@ python3 -m py_compile \
 SVG 图表检查命令：
 
 ```bash
-xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
+xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg examples/01-mobile-knowledge-assistant/data/multimodal/login_error.svg
 ```
 
 ## 写作要求

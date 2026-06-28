@@ -8,7 +8,7 @@
 
 ![图 14-1 成本、性能与稳定性观测闭环](../assets/diagrams/ops-observability-loop.svg)
 
-配套脚本：`examples/mobile-knowledge-assistant/scripts/ops_report.py`
+配套脚本：`examples/01-mobile-knowledge-assistant/scripts/ops_report.py`
 
 ## 学习目标
 
@@ -84,7 +84,7 @@ output_cost = record.completion_tokens / 1000 * price.output_per_1k_usd
 运行报表：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/ops_report.py --latency-slo-ms 3000
 ```
 

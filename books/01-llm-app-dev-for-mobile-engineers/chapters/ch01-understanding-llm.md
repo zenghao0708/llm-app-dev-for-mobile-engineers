@@ -151,7 +151,7 @@
 进入示例工程：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 PYTHONPATH=src python3 - <<'PY'
 from pathlib import Path
 import json

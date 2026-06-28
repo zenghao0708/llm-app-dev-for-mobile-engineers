@@ -12,7 +12,7 @@
 - `back-matter/`：附录 A-E，包括术语表、Prompt 模板、项目结构、排查清单和延伸阅读。
 - `assets/diagrams/`：可用于排版的高清 SVG 矢量示意图。
 - `assets/image-prompts/`：每章高清配图、截图和示意图制作提示。
-- `../../examples/mobile-knowledge-assistant/`：可运行的移动端知识助手配套工程。
+- `../../examples/01-mobile-knowledge-assistant/`：可运行的移动端知识助手配套工程。
 - `book-manifest.json`：整书源文件顺序清单，供构建脚本和章节管理工具读取。
 - `contents.md`：正式目录。
 - `style-guide.md`：写作风格、代码风格、图片规范。

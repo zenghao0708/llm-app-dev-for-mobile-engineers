@@ -9,7 +9,7 @@
 - 图 5-1 大模型应用调用链路，对应 `../assets/diagrams/llm-call-flow.svg`。
 - 图 5-2 同步调用与流式调用时序，对应 `../assets/diagrams/streaming-api.svg`。
 
-配套代码：`examples/mobile-knowledge-assistant/`
+配套代码：`examples/01-mobile-knowledge-assistant/`
 
 ## 学习目标
 
@@ -282,7 +282,7 @@ idle -> submitting -> waiting_first_token -> streaming -> done
 进入示例工程目录：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 ```
 
 启动服务：

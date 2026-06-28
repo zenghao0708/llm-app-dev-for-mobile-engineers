@@ -4,7 +4,7 @@
 
 本章把全书知识串联起来，完成可运行的移动端知识助手。项目采用“移动端 App + Python 服务端 + 本地知识库 + RAG + 模型提供方”的结构，支持 JSON 问答、SSE、取消、工具调用、引用、Trace、评测和测试。
 
-工程：`examples/mobile-knowledge-assistant/`
+工程：`examples/01-mobile-knowledge-assistant/`
 
 ![图 16-1 移动端知识助手的生产级系统架构](../assets/diagrams/production-architecture.svg)
 
@@ -61,7 +61,7 @@
 进入项目目录：
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 ```
 
 可选地创建虚拟环境：

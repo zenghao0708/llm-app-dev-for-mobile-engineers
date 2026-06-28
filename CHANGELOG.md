@@ -8,7 +8,7 @@
 - 压缩第一册《大模型应用开发快速入门》至约 11 万字符，保留可运行示例、核心图表、接口命令、评测和上线检查。
 - 扩写三部曲第三册《端侧大模型与移动智能工程》到约 10 万字符完整初稿，包含书名页、前言、目录、14 章、附录 A-D、篇幅规划、资料来源规划和 EPUB 产物。
 - 扩写三部曲第二册《AI Coding 编程专家》到接近 10 万字完整初稿，补齐附录 D-F、读者练习、配套示例工程说明和发版前质量检查清单。
-- 新增 `examples/ai-coding-mobile-refactor/`，提供可运行的 Python 示例工程和测试，用于训练移动端 AI coding 重构工作流，并纳入 GitHub Actions。
+- 新增 `examples/02-ai-coding-mobile-refactor/`，提供可运行的 Python 示例工程和测试，用于训练移动端 AI coding 重构工作流，并纳入 GitHub Actions。
 - 新增三部曲第二册《AI Coding 编程专家：面向移动端工程师的 Agent 编程、工程上下文与自动化实践》书稿骨架，包含目录、篇幅规划、风格指南、14 章章节草案和附录。
 - `tools/build_book.py` 和 `tools/build_epub.py` 支持通过 `--manifest` 构建不同书稿。
 - 新增 GitHub 公开仓库发布方案，说明仓库命名、目录结构、章节增删流程、授权建议和发布阶段。

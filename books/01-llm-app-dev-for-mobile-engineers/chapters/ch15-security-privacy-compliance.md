@@ -81,7 +81,7 @@ RAG 应用尤其容易遇到这类问题。防护要点：
 配套工程提供 `scripts/privacy_redaction.py`，用于在日志或 Prompt 上下文进入模型服务前做基础脱敏。它支持文本或文件输入，输出脱敏文本和发现项计数，并且不会把原始敏感值写回报告。
 
 ```bash
-cd examples/mobile-knowledge-assistant
+cd examples/01-mobile-knowledge-assistant
 python3 scripts/privacy_redaction.py \
   --text 'user=a@example.com token=abc123 phone=13800138000 api_key=test-secret-value request_id=req_001'
 ```
