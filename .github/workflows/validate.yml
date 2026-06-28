@@ -28,6 +28,9 @@ jobs:
       - name: Validate second book manifest
         run: python3 tools/manage_chapters.py --manifest books/02-ai-coding-mobile-engineers/book-manifest.json validate
 
+      - name: Validate third book manifest
+        run: python3 tools/manage_chapters.py --manifest books/03-on-device-ai-mobile-engineers/book-manifest.json validate
+
       - name: Build whole-book manuscript
         run: python3 tools/build_book.py
 
@@ -37,6 +40,12 @@ jobs:
             --manifest books/02-ai-coding-mobile-engineers/book-manifest.json \
             --output build/book-02-ai-coding-mobile-engineers.md
 
+      - name: Build third book manuscript
+        run: |
+          python3 tools/build_book.py \
+            --manifest books/03-on-device-ai-mobile-engineers/book-manifest.json \
+            --output build/book-03-on-device-ai-mobile-engineers.md
+
       - name: Build EPUB ebook
         run: python3 tools/build_epub.py
 
@@ -45,6 +54,12 @@ jobs:
           python3 tools/build_epub.py \
             --manifest books/02-ai-coding-mobile-engineers/book-manifest.json \
             --output build/ebooks/ai-coding-mobile-engineers.epub
+
+      - name: Build third book EPUB ebook
+        run: |
+          python3 tools/build_epub.py \
+            --manifest books/03-on-device-ai-mobile-engineers/book-manifest.json \
+            --output build/ebooks/on-device-ai-mobile-engineers.epub
 
       - name: Run book build tests
         run: python3 -m unittest discover -s tests

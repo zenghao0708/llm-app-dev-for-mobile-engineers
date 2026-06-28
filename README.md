@@ -11,6 +11,7 @@
 - 配套工程：`examples/mobile-knowledge-assistant/` 已包含可运行的 Python 服务端、开发环境检查、提示词契约检查、结构化输出与工具调用、RAG 检索、RAG 评测、答案质量评测、成本、性能与稳定性报表、多模态截图 payload、只读文件分析 Agent、周报工作流、SSE 流式输出、取消请求、RAG Trace 和自动化测试。
 - 发布计划：见 `GITHUB_PUBLICATION_PLAN.md`。
 - 三部曲第二册《AI Coding 编程专家》已扩写为接近 10 万字的完整初稿，见 `books/02-ai-coding-mobile-engineers/`；配套示例工程见 `examples/ai-coding-mobile-refactor/`。
+- 三部曲第三册《端侧大模型与移动智能工程》已建立书稿骨架和篇幅规划，见 `books/03-on-device-ai-mobile-engineers/`。
 
 ## 目录
 
@@ -28,6 +29,8 @@ examples/
 books/
   02-ai-coding-mobile-engineers/
                          第二册：面向移动端工程师的 AI coding 进阶书稿
+  03-on-device-ai-mobile-engineers/
+                         第三册：端侧大模型与移动智能工程书稿骨架
 ```
 
 ## 本地验证
@@ -60,6 +63,18 @@ python3 tools/build_book.py \
 python3 tools/build_epub.py \
   --manifest books/02-ai-coding-mobile-engineers/book-manifest.json \
   --output build/ebooks/ai-coding-mobile-engineers.epub
+```
+
+构建第三册书稿骨架：
+
+```bash
+python3 tools/manage_chapters.py --manifest books/03-on-device-ai-mobile-engineers/book-manifest.json validate
+python3 tools/build_book.py \
+  --manifest books/03-on-device-ai-mobile-engineers/book-manifest.json \
+  --output build/book-03-on-device-ai-mobile-engineers.md
+python3 tools/build_epub.py \
+  --manifest books/03-on-device-ai-mobile-engineers/book-manifest.json \
+  --output build/ebooks/on-device-ai-mobile-engineers.epub
 ```
 
 运行第二册配套示例工程测试：

@@ -1,0 +1,30 @@
+{
+  "title": "端侧大模型与移动智能工程",
+  "subtitle": "面向移动端工程师的本地推理、端云协同与 AI 产品化实践",
+  "audience": "移动端开发工程师",
+  "series": "大模型应用开发三部曲",
+  "volume": 3,
+  "target_length_cn_chars": 100000,
+  "source_order": [
+    {"id": "book-info", "type": "front-matter", "title": "书名页与元信息", "path": "books/03-on-device-ai-mobile-engineers/front-matter/00-book-info.md"},
+    {"id": "preface", "type": "front-matter", "title": "前言", "path": "books/03-on-device-ai-mobile-engineers/front-matter/01-preface.md"},
+    {"id": "contents", "type": "contents", "title": "目录", "path": "books/03-on-device-ai-mobile-engineers/contents.md"},
+    {"id": "ch01-edge-ai-opportunities-boundaries", "type": "chapter", "number": 1, "part": "第 1 篇 端侧智能基础", "title": "端侧大模型的机会与边界", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch01-edge-ai-opportunities-boundaries.md", "target_length_cn_chars": 6500},
+    {"id": "ch02-mobile-ai-runtime-model-formats", "type": "chapter", "number": 2, "part": "第 1 篇 端侧智能基础", "title": "移动端 AI Runtime 与模型格式", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch02-mobile-ai-runtime-model-formats.md", "target_length_cn_chars": 7000},
+    {"id": "ch03-hybrid-on-device-cloud-architecture", "type": "chapter", "number": 3, "part": "第 1 篇 端侧智能基础", "title": "端云协同架构", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch03-hybrid-on-device-cloud-architecture.md", "target_length_cn_chars": 7000},
+    {"id": "ch04-on-device-text-speech", "type": "chapter", "number": 4, "part": "第 2 篇 模型能力落地", "title": "端侧文本与语音能力", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch04-on-device-text-speech.md", "target_length_cn_chars": 7000},
+    {"id": "ch05-on-device-vision-multimodal", "type": "chapter", "number": 5, "part": "第 2 篇 模型能力落地", "title": "端侧视觉与多模态输入", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch05-on-device-vision-multimodal.md", "target_length_cn_chars": 7000},
+    {"id": "ch06-local-embedding-retrieval-personalization", "type": "chapter", "number": 6, "part": "第 2 篇 模型能力落地", "title": "本地 Embedding、检索与个性化", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch06-local-embedding-retrieval-personalization.md", "target_length_cn_chars": 7000},
+    {"id": "ch07-small-model-distillation-capability-cut", "type": "chapter", "number": 7, "part": "第 2 篇 模型能力落地", "title": "小模型、蒸馏与能力裁剪", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch07-small-model-distillation-capability-cut.md", "target_length_cn_chars": 7000},
+    {"id": "ch08-performance-memory-battery-thermal", "type": "chapter", "number": 8, "part": "第 3 篇 移动端工程优化", "title": "性能、内存、电量与热管理", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch08-performance-memory-battery-thermal.md", "target_length_cn_chars": 7500},
+    {"id": "ch09-package-model-download-versioning", "type": "chapter", "number": 9, "part": "第 3 篇 移动端工程优化", "title": "包体、模型下载与版本更新", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch09-package-model-download-versioning.md", "target_length_cn_chars": 7000},
+    {"id": "ch10-privacy-security-local-data-governance", "type": "chapter", "number": 10, "part": "第 3 篇 移动端工程优化", "title": "隐私、安全与本地数据治理", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch10-privacy-security-local-data-governance.md", "target_length_cn_chars": 7000},
+    {"id": "ch11-on-device-ai-ux", "type": "chapter", "number": 11, "part": "第 4 篇 产品化与发布", "title": "端侧 AI 体验设计", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch11-on-device-ai-ux.md", "target_length_cn_chars": 7000},
+    {"id": "ch12-evaluation-gray-release-observability", "type": "chapter", "number": 12, "part": "第 4 篇 产品化与发布", "title": "评测、灰度与线上观测", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch12-evaluation-gray-release-observability.md", "target_length_cn_chars": 7500},
+    {"id": "ch13-cross-platform-on-device-ai", "type": "chapter", "number": 13, "part": "第 4 篇 产品化与发布", "title": "跨平台端侧 AI 工程", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch13-cross-platform-on-device-ai.md", "target_length_cn_chars": 7000},
+    {"id": "ch14-capstone-hybrid-intelligent-assistant", "type": "chapter", "number": 14, "part": "第 4 篇 产品化与发布", "title": "综合项目：构建端云协同智能助手", "path": "books/03-on-device-ai-mobile-engineers/chapters/ch14-capstone-hybrid-intelligent-assistant.md", "target_length_cn_chars": 9000},
+    {"id": "appendix-a-glossary", "type": "back-matter", "title": "附录 A 端侧 AI 术语表", "path": "books/03-on-device-ai-mobile-engineers/back-matter/appendix-a-glossary.md"},
+    {"id": "appendix-b-runtime-model-formats", "type": "back-matter", "title": "附录 B Runtime 与模型格式对照", "path": "books/03-on-device-ai-mobile-engineers/back-matter/appendix-b-runtime-model-formats.md"},
+    {"id": "appendix-c-release-checklist", "type": "back-matter", "title": "附录 C 发布前检查清单", "path": "books/03-on-device-ai-mobile-engineers/back-matter/appendix-c-release-checklist.md"}
+  ]
+}
