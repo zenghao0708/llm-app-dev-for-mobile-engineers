@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "manuscript" / "book-manifest.json"
 DEFAULT_OUTPUT = ROOT / "build" / "ebooks" / "llm-app-dev-for-mobile-engineers.epub"
 
-BLOCK_START_RE = re.compile(r"^(#{1,6})\s+|^```|^\s*$|^\s*[-*]\s+|^\s*\d+\.\s+|^\|")
+BLOCK_START_RE = re.compile(r"^(#{1,6})\s+|^```|^\s*$|^\s*[-*]\s+|^\s*\d+\.\s+|^\||^\s*>")
 INLINE_LINK_RE = re.compile(r"(!?\[([^\]\n]*)]\(([^)\n]+)\))")
 AUTO_LINK_RE = re.compile(r"&lt;(https?://[^&\s]+)&gt;")
 CODE_SPAN_RE = re.compile(r"`([^`\n]+)`")
@@ -315,6 +315,15 @@ def markdown_to_xhtml(
                 table_lines.append(lines[index])
                 index += 1
             output.append(render_table(table_lines, resolve_href, resolve_image))
+            continue
+
+        if re.match(r"^\s*>\s?", line):
+            quote_lines: list[str] = []
+            while index < len(lines) and re.match(r"^\s*>\s?", lines[index]):
+                quote_lines.append(re.sub(r"^\s*>\s?", "", lines[index]).rstrip())
+                index += 1
+            quote = join_paragraph_lines(quote_lines)
+            output.append(f"<blockquote><p>{inline_html(quote, resolve_href, resolve_image)}</p></blockquote>")
             continue
 
         if re.match(r"^\s*[-*]\s+", line):
@@ -625,6 +634,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 p {
   margin: 0.75em 0;
+}
+blockquote {
+  background: #f4f8fb;
+  border-left: 4px solid #2f80aa;
+  color: #243244;
+  margin: 1em 0;
+  padding: 0.75em 1em;
+}
+blockquote p {
+  margin: 0;
 }
 a {
   color: #0f6ca8;

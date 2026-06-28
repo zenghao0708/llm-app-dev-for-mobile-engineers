@@ -142,7 +142,7 @@ def render_messages(case: PromptContractCase) -> list[dict[str, str]]:
 | `no_sensitive_values` | 真实密钥、Cookie、Token 进入提示词 |
 | `within_length_budget` | 提示词过长，挤占上下文窗口和成本预算 |
 
-提示词是否包含必要结构、是否泄漏敏感值、是否超出长度预算，都是可以在发送模型前确定性检查的。
+> **工程边界**：提示词是否包含必要结构、是否泄漏敏感值、是否超出长度预算，都是可以在发送模型前确定性检查的。
 
 ## 4.4 Few-shot 示例
 

@@ -6,7 +6,7 @@ Agent 想要完成真实编程任务，不能只靠模型。它需要一个 harn
 
 Anthropic 在 long-running agents 的 harness 研究中指出，长任务 agent 的问题不只是上下文窗口限制。即使有压缩，agent 仍可能试图一次做太多、在半成品状态中断、或者看到已有进展后过早宣布完成。解决思路不是“给一个更长 Prompt”，而是设计环境：初始化任务清单、进度文件、可恢复的 Git 状态、清晰的测试和逐步交付机制。
 
-对移动端团队来说，Harness Engineering 是把 AI coding 从个人技巧变成团队能力的关键。
+> **重点提示**：对移动端团队来说，Harness Engineering 是把 AI coding 从个人技巧变成团队能力的关键。
 
 ## 学习目标
 
