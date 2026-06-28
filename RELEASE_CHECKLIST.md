@@ -47,5 +47,5 @@ xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg 
 
 - 确认 `.env`、真实 API Key、Cookie、Session、本地日志、缓存、`__pycache__/`、`.pyc`、`node_modules/` 没有进入提交。
 - 确认 `README.md`、`CONTRIBUTING.md`、`GITHUB_PUBLICATION_PLAN.md`、`CHANGELOG.md` 与当前章节状态一致。
-- 首次公开建议使用仓库名 `llm-app-dev-for-mobile-engineers`。
+- 首次公开建议使用仓库名 `mobile-ai-engineering-trilogy`。
 - 首次标签建议使用 `v0.2-readable`，表示全书进入可读草稿并开放勘误。

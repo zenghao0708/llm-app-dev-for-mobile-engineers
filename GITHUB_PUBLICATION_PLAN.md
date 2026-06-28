@@ -12,12 +12,12 @@
 
 优先使用英文仓库名，便于搜索和引用：
 
-- `llm-app-dev-for-mobile-engineers`
-- `mobile-llm-application-book`
-- `llm-book-mobile-dev`
-- `large-model-app-dev-book`
+- `mobile-ai-engineering-trilogy`
+- `mobile-ai-engineering-books`
+- `mobile-llm-ai-coding-on-device-ai`
+- `ai-engineering-for-mobile-developers`
 
-推荐首选：`llm-app-dev-for-mobile-engineers`。这个名称能直接表达“面向移动端工程师的大模型应用开发”。
+推荐首选：`mobile-ai-engineering-trilogy`。这个名称比早期的 `llm-app-dev-for-mobile-engineers` 更适合当前三部曲：第一册是大模型应用开发，第二册是 AI Coding，第三册是端侧智能工程，整体已经从单一 LLM 应用扩展为移动端 AI 工程体系。
 
 ## 推荐公开形态
 
@@ -48,7 +48,7 @@ docs/
   examples/
 ```
 
-初期不必急着搬迁全部文件。可以先让 `books/01-llm-app-dev-for-mobile-engineers/` 保持当前结构，等目录稳定后再生成 `docs/` 在线阅读目录。
+当前已经按三部曲整理为 `books/01-*`、`books/02-*`、`books/03-*` 和 `examples/01-*`、`examples/02-*`、`examples/03-*`。后续可以在目录稳定后再生成 `docs/` 在线阅读目录。
 
 ## 版本策略
 
@@ -70,7 +70,7 @@ docs/
 - GitHub Pages 导航配置，如 `mkdocs.yml`
 - `.github/ISSUE_TEMPLATE/chapter-proposal.yml` 中的相关说明，如果章节调整流程发生变化
 
-当前仓库已初始化 Git，并已推送到公开仓库 `zenghao0708/llm-app-dev-for-mobile-engineers` 的 `main` 分支。后续发布前仍应完成一次本地验证，并确认 GitHub Actions 通过。
+当前仓库已初始化 Git，并已推送到公开仓库 `zenghao0708/mobile-ai-engineering-trilogy` 的 `main` 分支。后续发布前仍应完成一次本地验证，并确认 GitHub Actions 通过。
 
 ## 章节增删流程
 

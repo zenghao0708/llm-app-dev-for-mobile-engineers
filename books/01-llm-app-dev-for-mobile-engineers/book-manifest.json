@@ -2,7 +2,7 @@
   "title": "大模型应用开发快速入门",
   "subtitle": "Prompt、RAG、Agent 与工程实践",
   "audience": "移动端开发工程师",
-  "repository_name": "llm-app-dev-for-mobile-engineers",
+  "repository_name": "mobile-ai-engineering-trilogy",
   "source_order": [
     {
       "id": "book-info",
