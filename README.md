@@ -7,7 +7,7 @@
 ## 当前状态
 
 - 系列目标篇幅：每册约 10 万字，合理区间为 9 万-11 万字。
-- 第一册《大模型应用开发快速入门》：当前约 11.0 万字符；16 章和附录 A-E 已压缩为目标区间内的完整书稿。
+- 第一册《大模型应用开发快速入门》：当前约 11.0 万字符；16 章和附录 A-E 已压缩为目标区间内的完整书稿，见 `books/01-llm-app-dev-for-mobile-engineers/`。
 - 第二册《AI Coding 编程专家》：当前约 10.0 万字符；14 章、附录 A-F 和配套示例工程已形成完整初稿，见 `books/02-ai-coding-mobile-engineers/`。
 - 第三册《端侧大模型与移动智能工程》：当前约 10.0 万字符；14 章和附录 A-D 已形成完整初稿，见 `books/03-on-device-ai-mobile-engineers/`。
 - 配套工程：`examples/mobile-knowledge-assistant/` 已包含可运行的 Python 服务端、开发环境检查、提示词契约检查、结构化输出与工具调用、RAG 检索、RAG 评测、答案质量评测、成本、性能与稳定性报表、多模态截图 payload、只读文件分析 Agent、周报工作流、SSE 流式输出、取消请求、RAG Trace 和自动化测试。
@@ -17,21 +17,21 @@
 ## 目录
 
 ```text
-manuscript/
+books/01-llm-app-dev-for-mobile-engineers/
+                         第一册：大模型应用开发快速入门
   front-matter/          前言、书名页和读者说明
   chapters/              全书章节正文
   back-matter/           附录
   assets/                图表、截图和配图素材
+books/02-ai-coding-mobile-engineers/
+                         第二册：面向移动端工程师的 AI coding 进阶书稿
+books/03-on-device-ai-mobile-engineers/
+                         第三册：端侧大模型与移动智能工程书稿
 examples/
   mobile-knowledge-assistant/
                          可运行的移动端知识助手服务端示例
   ai-coding-mobile-refactor/
                          第二册配套 AI coding 重构训练示例
-books/
-  02-ai-coding-mobile-engineers/
-                         第二册：面向移动端工程师的 AI coding 进阶书稿
-  03-on-device-ai-mobile-engineers/
-                         第三册：端侧大模型与移动智能工程书稿
 ```
 
 ## 本地验证
@@ -44,7 +44,7 @@ python3 tools/build_book.py
 python3 -m unittest discover -s tests
 ```
 
-输出文件为 `build/book.md`。这是由 `manuscript/` 源文件生成的审校稿，正式修改仍应回到章节和附录源文件中完成。
+输出文件为 `build/book.md`。这是由 `books/01-llm-app-dev-for-mobile-engineers/` 源文件生成的审校稿，正式修改仍应回到章节和附录源文件中完成。
 
 生成 EPUB 3 电子书：
 
@@ -94,7 +94,7 @@ python3 -m py_compile src/ai_refactor/*.py
 
 ## 章节维护
 
-整书顺序由 `manuscript/book-manifest.json` 维护，构建脚本会按该清单合并前言、目录、章节和附录。常用命令：
+整书顺序由 `books/01-llm-app-dev-for-mobile-engineers/book-manifest.json` 维护，构建脚本会按该清单合并前言、目录、章节和附录。常用命令：
 
 ```bash
 python3 tools/manage_chapters.py list
@@ -105,7 +105,7 @@ python3 tools/manage_chapters.py remove 17
 python3 tools/manage_chapters.py validate
 ```
 
-`remove` 默认只从清单移除章节，不删除 Markdown 文件；确需删除文件时再追加 `--delete-file`。新增、删除或重排章节后，应同步审查 `manuscript/contents.md`、`manuscript/publication-length-plan.md` 和 `CHANGELOG.md`。
+`remove` 默认只从清单移除章节，不删除 Markdown 文件；确需删除文件时再追加 `--delete-file`。新增、删除或重排章节后，应同步审查 `books/01-llm-app-dev-for-mobile-engineers/contents.md`、`books/01-llm-app-dev-for-mobile-engineers/publication-length-plan.md` 和 `CHANGELOG.md`。
 
 运行配套工程测试：
 
@@ -219,7 +219,7 @@ python3 scripts/image_ticket_payload.py --omit-image-data
 检查 SVG 图表：
 
 ```bash
-xmllint --noout manuscript/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
+xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
 ```
 
 ## 公开仓库说明
@@ -230,6 +230,6 @@ xmllint --noout manuscript/assets/diagrams/*.svg examples/mobile-knowledge-assis
 
 - 书稿正文和示例代码分开授权，具体见 `LICENSE.md`。
 - 真实 API Key、内部域名、真实用户数据不得进入仓库。
-- 章节增删必须同步更新 `manuscript/contents.md` 和 `GITHUB_PUBLICATION_PLAN.md`。
-- 章节顺序以 `manuscript/book-manifest.json` 为准，使用 `tools/manage_chapters.py` 做增删改查。
+- 章节增删必须同步更新 `books/01-llm-app-dev-for-mobile-engineers/contents.md` 和 `GITHUB_PUBLICATION_PLAN.md`。
+- 章节顺序以 `books/01-llm-app-dev-for-mobile-engineers/book-manifest.json` 为准，使用 `tools/manage_chapters.py` 做增删改查。
 - 示例代码变更必须补充或更新测试。

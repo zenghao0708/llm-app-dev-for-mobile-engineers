@@ -15,7 +15,7 @@
 - 新增根目录 README、贡献说明、勘误入口和 `.gitignore`，为公开仓库做准备。
 - 新增 `LICENSE.md`、`LICENSE-CODE` 和 `LICENSE-CONTENT.md`，明确示例代码与书稿内容分开授权。
 - 新增 GitHub Actions 校验流程和 Issue 表单，覆盖环境自检、单元测试、代码编译、SVG 校验、勘误和章节调整建议。
-- 新增 `manuscript/book-manifest.json` 和 `tools/manage_chapters.py`，支持章节清单校验以及章节 list/show/add/rename/remove。
+- 新增 `books/01-llm-app-dev-for-mobile-engineers/book-manifest.json` 和 `tools/manage_chapters.py`，支持章节清单校验以及章节 list/show/add/rename/remove。
 - 新增整书 Markdown 构建脚本 `tools/build_book.py` 和链接校验测试，用于生成可打开的 `build/book.md` 审校稿。
 - 新增 EPUB 3 构建脚本 `tools/build_epub.py`，输出支持目录、标题锚点、阅读器笔记和高清 PNG 图表的 `build/ebooks/llm-app-dev-for-mobile-engineers.epub`，并在构建时将 SVG 图表栅格化以避免阅读器内中文字体乱码。
 - 补齐附录 A、B、D、E，形成术语表、Prompt 模板库、常见故障排查清单和延伸阅读资料来源。

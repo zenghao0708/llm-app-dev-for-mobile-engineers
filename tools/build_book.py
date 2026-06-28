@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / "manuscript" / "book-manifest.json"
+MANIFEST_PATH = ROOT / "books" / "01-llm-app-dev-for-mobile-engineers" / "book-manifest.json"
 DEFAULT_OUTPUT = ROOT / "build" / "book.md"
 
 INLINE_LINK_RE = re.compile(

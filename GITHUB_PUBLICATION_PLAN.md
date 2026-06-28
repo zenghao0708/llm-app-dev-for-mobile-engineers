@@ -25,7 +25,7 @@
 
 | 模块 | 建议路径 | 作用 |
 | --- | --- | --- |
-| 第一册书稿 | `manuscript/` | Prompt、RAG、Agent、多模态和综合项目 |
+| 第一册书稿 | `books/01-llm-app-dev-for-mobile-engineers/` | Prompt、RAG、Agent、多模态和综合项目 |
 | 第二册书稿 | `books/02-ai-coding-mobile-engineers/` | AI coding、工程上下文、Agent 编程和自动化实践 |
 | 第三册书稿 | `books/03-on-device-ai-mobile-engineers/` | 端侧模型、混合推理、隐私、性能和产品化 |
 | 章节清单 | `*/book-manifest.json` | 维护各册构建顺序和章节元数据 |
@@ -48,7 +48,7 @@ docs/
   examples/
 ```
 
-初期不必急着搬迁全部文件。可以先让 `manuscript/` 保持当前结构，等目录稳定后再生成 `docs/` 在线阅读目录。
+初期不必急着搬迁全部文件。可以先让 `books/01-llm-app-dev-for-mobile-engineers/` 保持当前结构，等目录稳定后再生成 `docs/` 在线阅读目录。
 
 ## 版本策略
 
@@ -63,10 +63,10 @@ docs/
 
 每次增删章节，应同步更新：
 
-- `manuscript/book-manifest.json`，优先通过 `python3 tools/manage_chapters.py` 修改
-- `manuscript/contents.md`
-- `manuscript/publication-length-plan.md`
-- `manuscript/README.md`
+- `books/01-llm-app-dev-for-mobile-engineers/book-manifest.json`，优先通过 `python3 tools/manage_chapters.py` 修改
+- `books/01-llm-app-dev-for-mobile-engineers/contents.md`
+- `books/01-llm-app-dev-for-mobile-engineers/publication-length-plan.md`
+- `books/01-llm-app-dev-for-mobile-engineers/README.md`
 - GitHub Pages 导航配置，如 `mkdocs.yml`
 - `.github/ISSUE_TEMPLATE/chapter-proposal.yml` 中的相关说明，如果章节调整流程发生变化
 
@@ -77,10 +77,10 @@ docs/
 新增章节建议按以下流程执行：
 
 1. 使用 `python3 tools/manage_chapters.py add --number 17 --slug on-device-llm --title '端侧大模型应用'` 创建章节文件和 manifest 条目。
-2. 在 `manuscript/contents.md` 中说明章节位置和标题。
+2. 在 `books/01-llm-app-dev-for-mobile-engineers/contents.md` 中说明章节位置和标题。
 3. 在 `publication-length-plan.md` 中调整目标字数。
 4. 如果新增代码示例，同步放入 `examples/` 并补充测试。
-5. 如果新增图表，同步放入 `manuscript/assets/diagrams/`，确保 SVG 不遮挡、不重叠、可高清渲染。
+5. 如果新增图表，同步放入 `books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/`，确保 SVG 不遮挡、不重叠、可高清渲染。
 6. 运行 `python3 tools/manage_chapters.py validate` 和 `python3 tools/build_book.py`。
 7. 更新 `CHANGELOG.md` 或 Release Notes，说明本次结构调整。
 
@@ -146,6 +146,6 @@ GitHub Issues 可以使用以下标签：
 - 运行 `python3 tools/manage_chapters.py validate`，确认章节清单没有重复、缺失或越界路径。
 - 确认正文、图表和代码的授权边界，必要时增加单独的内容授权说明。
 - 运行 `.github/workflows/validate.yml` 中的本地等价命令，确保示例工程和 SVG 图表可验证。
-- 检查 `manuscript/contents.md`、`books/*/contents.md`、`README.md`、`SERIES_PLAN.md`、`CHANGELOG.md` 和 `GITHUB_PUBLICATION_PLAN.md` 中的章节状态一致。
+- 检查 `books/01-llm-app-dev-for-mobile-engineers/contents.md`、`books/*/contents.md`、`README.md`、`SERIES_PLAN.md`、`CHANGELOG.md` 和 `GITHUB_PUBLICATION_PLAN.md` 中的章节状态一致。
 - 重新生成并抽检 `build/ebooks/*.epub`，确认目录、锚点、图片和中文字体正常。
 - 检查仓库中没有真实 API Key、`.env`、本地缓存、打包产物或第三方未授权素材。

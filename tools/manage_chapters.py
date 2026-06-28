@@ -8,8 +8,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / "manuscript" / "book-manifest.json"
-CHAPTER_DIR = ROOT / "manuscript" / "chapters"
+MANIFEST_PATH = ROOT / "books" / "01-llm-app-dev-for-mobile-engineers" / "book-manifest.json"
 SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]*[a-z0-9]$")
 
 
@@ -33,8 +32,13 @@ def find_chapter(manifest: dict[str, Any], identifier: str) -> dict[str, Any]:
     raise ValueError(f"Chapter not found: {identifier}")
 
 
-def chapter_path(number: int, slug: str) -> str:
-    return f"manuscript/chapters/ch{number:02d}-{slug}.md"
+def chapter_path(manifest_path: Path, number: int, slug: str) -> str:
+    book_dir = manifest_path.resolve().parent
+    try:
+        relative_book_dir = book_dir.relative_to(ROOT)
+    except ValueError as exc:
+        raise ValueError(f"Manifest must be inside repository: {manifest_path}") from exc
+    return f"{relative_book_dir.as_posix()}/chapters/ch{number:02d}-{slug}.md"
 
 
 def validate_slug(slug: str) -> None:
@@ -63,7 +67,7 @@ def command_add(args: argparse.Namespace) -> int:
     if any(item.get("number") == number for item in chapter_items(manifest)):
         raise ValueError(f"Chapter number already exists: {number}")
 
-    relative_path = chapter_path(number, args.slug)
+    relative_path = chapter_path(args.manifest, number, args.slug)
     absolute_path = ROOT / relative_path
     if absolute_path.exists():
         raise FileExistsError(f"Chapter file already exists: {relative_path}")
@@ -110,7 +114,7 @@ def command_rename(args: argparse.Namespace) -> int:
     if args.title:
         item["title"] = args.title
     if args.slug:
-        new_relative_path = chapter_path(number, args.slug)
+        new_relative_path = chapter_path(args.manifest, number, args.slug)
         new_path = ROOT / new_relative_path
         if new_path.exists() and new_path != old_path:
             raise FileExistsError(f"Chapter file already exists: {new_relative_path}")
@@ -234,7 +238,7 @@ def replace_heading(path: Path, number: int, title: str) -> None:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Manage book chapters through manuscript/book-manifest.json.")
+    parser = argparse.ArgumentParser(description="Manage book chapters through books/01-llm-app-dev-for-mobile-engineers/book-manifest.json.")
     parser.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
     subparsers = parser.add_subparsers(dest="command", required=True)
 

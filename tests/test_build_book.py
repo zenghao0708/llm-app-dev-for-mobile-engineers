@@ -17,13 +17,13 @@ class BuildBookLinkTest(unittest.TestCase):
             root = Path(temp_dir)
             manifest_path = root / "manifest.json"
             manifest_path.write_text(
-                '{"source_order":[{"path":"manuscript/a.md"},{"path":"manuscript/b.md"}]}',
+                '{"source_order":[{"path":"books/01-llm-app-dev-for-mobile-engineers/a.md"},{"path":"books/01-llm-app-dev-for-mobile-engineers/b.md"}]}',
                 encoding="utf-8",
             )
 
             book_files = _load_book_files(manifest_path=manifest_path, root=root)
 
-        self.assertEqual(book_files, ["manuscript/a.md", "manuscript/b.md"])
+        self.assertEqual(book_files, ["books/01-llm-app-dev-for-mobile-engineers/a.md", "books/01-llm-app-dev-for-mobile-engineers/b.md"])
 
     def test_manifest_path_escaping_root_fails(self):
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -41,8 +41,8 @@ class BuildBookLinkTest(unittest.TestCase):
     def test_rewrites_inline_link_with_title(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
-            source = root / "manuscript" / "chapter.md"
-            target = root / "manuscript" / "assets" / "diagram.svg"
+            source = root / "books/01-llm-app-dev-for-mobile-engineers" / "chapter.md"
+            target = root / "books/01-llm-app-dev-for-mobile-engineers" / "assets" / "diagram.svg"
             output = root / "build" / "book.md"
             target.parent.mkdir(parents=True)
             source.parent.mkdir(parents=True, exist_ok=True)
@@ -56,7 +56,7 @@ class BuildBookLinkTest(unittest.TestCase):
                 root=root,
             )
 
-        self.assertEqual(rewritten, '[图](../manuscript/assets/diagram.svg "架构图")')
+        self.assertEqual(rewritten, '[图](../books/01-llm-app-dev-for-mobile-engineers/assets/diagram.svg "架构图")')
 
     def test_missing_inline_link_with_title_fails(self):
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -121,7 +121,7 @@ class BuildBookLinkTest(unittest.TestCase):
             outside.write_text("outside", encoding="utf-8")
             with self.assertRaises(ValueError):
                 _rewrite_relative_links(
-                    '[越界](../../outside.md)',
+                    '[越界](../../../outside.md)',
                     source,
                     output,
                     root=root,
@@ -130,8 +130,8 @@ class BuildBookLinkTest(unittest.TestCase):
     def test_reference_definition_is_rewritten(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
-            source = root / "manuscript" / "chapter.md"
-            target = root / "manuscript" / "assets" / "diagram.svg"
+            source = root / "books/01-llm-app-dev-for-mobile-engineers" / "chapter.md"
+            target = root / "books/01-llm-app-dev-for-mobile-engineers" / "assets" / "diagram.svg"
             output = root / "build" / "book.md"
             target.parent.mkdir(parents=True)
             source.parent.mkdir(parents=True, exist_ok=True)
@@ -144,12 +144,12 @@ class BuildBookLinkTest(unittest.TestCase):
                 root=root,
             )
 
-        self.assertIn('[ref]: <../manuscript/assets/diagram.svg> "架构图"', rewritten)
+        self.assertIn('[ref]: <../books/01-llm-app-dev-for-mobile-engineers/assets/diagram.svg> "架构图"', rewritten)
 
 
 def _source_and_output(root: Path) -> tuple[Path, Path]:
     root.mkdir(parents=True, exist_ok=True)
-    source = root / "manuscript" / "chapter.md"
+    source = root / "books/01-llm-app-dev-for-mobile-engineers" / "chapter.md"
     output = root / "build" / "book.md"
     source.parent.mkdir(parents=True)
     source.write_text("", encoding="utf-8")

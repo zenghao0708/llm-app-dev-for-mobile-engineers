@@ -56,7 +56,7 @@
 ```bash
 PYTHONWARNINGS=error PYTHONPATH=src python3 -m unittest discover -s tests
 python3 scripts/dev_environment_check.py
-xmllint --noout manuscript/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
+xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
 ```
 
 提交前还要确认没有 `.env`、真实 Key、真实用户日志、`__pycache__/`、`.pyc`、`node_modules/` 或本地打包产物。

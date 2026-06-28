@@ -16,7 +16,7 @@ class MarkdownToXhtmlTest(unittest.TestCase):
             item_id="chapter",
             title="Chapter",
             item_type="chapter",
-            source_path=ROOT / "manuscript" / "chapter.md",
+            source_path=ROOT / "books" / "01-llm-app-dev-for-mobile-engineers" / "chapter.md",
             href="text/chapter.xhtml",
         )
 

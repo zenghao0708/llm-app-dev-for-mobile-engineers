@@ -31,7 +31,7 @@ jobs:
       - name: Validate third book manifest
         run: python3 tools/manage_chapters.py --manifest books/03-on-device-ai-mobile-engineers/book-manifest.json validate
 
-      - name: Build whole-book manuscript
+      - name: Build first book manuscript
         run: python3 tools/build_book.py
 
       - name: Build second book manuscript
@@ -110,4 +110,4 @@ jobs:
         run: python3 -m py_compile tools/build_book.py tools/build_epub.py tools/manage_chapters.py
 
       - name: Validate SVG diagrams
-        run: xmllint --noout manuscript/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
+        run: xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg

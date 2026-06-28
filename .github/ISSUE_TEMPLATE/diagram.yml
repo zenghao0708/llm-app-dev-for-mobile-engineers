@@ -8,7 +8,7 @@ body:
     id: asset
     attributes:
       label: 图表文件或图编号
-      placeholder: manuscript/assets/diagrams/development-environment.svg
+      placeholder: books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/development-environment.svg
     validations:
       required: true
   - type: textarea

@@ -32,13 +32,13 @@ python3 -m py_compile \
 
 cd ../..
 python3 -m py_compile tools/build_book.py tools/build_epub.py tools/manage_chapters.py
-xmllint --noout manuscript/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
+xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
 ```
 
 ## 章节结构检查
 
-- `manuscript/book-manifest.json` 是构建顺序的唯一机器清单。
-- `manuscript/contents.md` 是面向读者的正式目录，需要人工审阅。
+- `books/01-llm-app-dev-for-mobile-engineers/book-manifest.json` 是构建顺序的唯一机器清单。
+- `books/01-llm-app-dev-for-mobile-engineers/contents.md` 是面向读者的正式目录，需要人工审阅。
 - 新增章节用 `python3 tools/manage_chapters.py add`。
 - 修改章节标题或文件 slug 用 `python3 tools/manage_chapters.py rename`。
 - 删除章节默认只从 manifest 移除；确认不再需要源文件时才使用 `--delete-file`。

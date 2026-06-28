@@ -9,7 +9,7 @@ body:
     attributes:
       label: 位置
       description: 请填写章节、文件路径或在线页面地址。
-      placeholder: manuscript/chapters/ch03-python-environment.md
+      placeholder: books/01-llm-app-dev-for-mobile-engineers/chapters/ch03-python-environment.md
     validations:
       required: true
   - type: textarea

@@ -17,7 +17,7 @@ from typing import Callable
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / "manuscript" / "book-manifest.json"
+MANIFEST_PATH = ROOT / "books" / "01-llm-app-dev-for-mobile-engineers" / "book-manifest.json"
 DEFAULT_OUTPUT = ROOT / "build" / "ebooks" / "llm-app-dev-for-mobile-engineers.epub"
 
 BLOCK_START_RE = re.compile(r"^(#{1,6})\s+|^```|^\s*$|^\s*[-*]\s+|^\s*\d+\.\s+|^\||^\s*>")
@@ -690,7 +690,7 @@ img {
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build an EPUB 3 ebook from manuscript/book-manifest.json.")
+    parser = argparse.ArgumentParser(description="Build an EPUB 3 ebook from books/01-llm-app-dev-for-mobile-engineers/book-manifest.json.")
     parser.add_argument("--manifest", type=Path, default=MANIFEST_PATH)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()

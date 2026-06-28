@@ -23,8 +23,8 @@
 提交 PR 前请确认：
 
 - 修改范围尽量小，不做无关格式化。
-- 增删章节时，优先使用 `python3 tools/manage_chapters.py` 更新 `manuscript/book-manifest.json` 和章节文件。
-- 章节结构变更后，同步审查 `manuscript/contents.md`、`manuscript/publication-length-plan.md`、`manuscript/README.md` 和 `CHANGELOG.md`。
+- 增删章节时，优先使用 `python3 tools/manage_chapters.py` 更新 `books/01-llm-app-dev-for-mobile-engineers/book-manifest.json` 和章节文件。
+- 章节结构变更后，同步审查 `books/01-llm-app-dev-for-mobile-engineers/contents.md`、`books/01-llm-app-dev-for-mobile-engineers/publication-length-plan.md`、`books/01-llm-app-dev-for-mobile-engineers/README.md` 和 `CHANGELOG.md`。
 - 修改配套代码时，补充或更新测试。
 - 不提交真实 API Key、内部域名、用户数据、日志、Cookie、Session 或本地缓存。
 - 不提交 `__pycache__/`、`.pyc`、`.env`、`.venv/`、`node_modules/` 等运行产物。
@@ -74,7 +74,7 @@ python3 -m py_compile \
 SVG 图表检查命令：
 
 ```bash
-xmllint --noout manuscript/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
+xmllint --noout books/01-llm-app-dev-for-mobile-engineers/assets/diagrams/*.svg examples/mobile-knowledge-assistant/data/multimodal/login_error.svg
 ```
 
 ## 写作要求

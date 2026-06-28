@@ -15,7 +15,7 @@
 
 以下内容按 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International 授权，详见 `LICENSE-CONTENT.md`：
 
-- `manuscript/`
+- `books/`
 - `README.md`
 - `CONTRIBUTING.md`
 - `ERRATA.md`
