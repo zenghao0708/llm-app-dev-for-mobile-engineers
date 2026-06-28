@@ -219,6 +219,119 @@ testdata/ai/
 | 性能 | 双平台是否都有 profiling 数据？ |
 | 灰度 | 是否能按平台独立开关和回滚？ |
 
+## 13.11 能力接口契约
+
+跨平台端侧 AI 的接口契约应描述“能力”，而不是描述某个模型调用。一个稳定契约至少包含：
+
+```text
+capability_id
+platform
+supported
+availability_reason
+required_permissions
+required_models
+input_schema_version
+output_schema_version
+estimated_cost
+fallback_modes
+```
+
+例如本地 OCR 能力可以返回：
+
+```json
+{
+  "capability_id": "local_ocr",
+  "supported": true,
+  "availability_reason": "ready",
+  "required_permissions": ["photo_library_read"],
+  "required_models": [
+    {"model_id": "ocr-lite", "version": "2.1.0", "status": "ready"}
+  ],
+  "input_schema_version": "image-input-v1",
+  "output_schema_version": "ocr-output-v2",
+  "fallback_modes": ["cloud_ocr", "manual_input"]
+}
+```
+
+共享层根据契约决定入口展示、下载提示、权限引导和降级路径。平台层负责把系统差异转成契约字段。这样做可以避免 UI 层到处写 `if iOS`、`if Android`，也避免把平台差异伪装成不存在。
+
+契约还应有版本。输入输出字段一旦变化，就要升级 schema，并提供兼容处理。跨平台项目最怕“某个平台偷偷多返回一个字段，另一个平台还是旧结构”。契约版本让这种变化可见、可测、可回滚。
+
+## 13.12 Bridge 性能与数据传输
+
+端侧 AI 经常处理大对象，跨平台 bridge 是性能风险点。原则是：大数据留在原生侧，跨层只传句柄、路径、结构化结果和小型元数据。
+
+| 数据 | 推荐方式 | 避免方式 |
+| --- | --- | --- |
+| 大图片 | 原生文件 URI、asset id、临时文件句柄 | base64 字符串穿过 bridge |
+| 音频 | 文件路径、分片句柄 | 一次性传完整二进制 |
+| 长文本 | 分段、文件路径、摘要输入 | UI 层拼接超长字符串 |
+| embedding | 原生索引查询 | 传大量向量到 JS/Dart |
+| 进度 | 小型事件 | 高频大 payload 事件 |
+
+bridge 还要控制事件频率。相册索引每处理一张图就发一次事件，可能让 UI 层过载。更好的方式是按时间窗口或批次上报：
+
+```text
+progress: processed=120, total=1000, stage="embedding"
+```
+
+跨平台性能优化不只看模型推理时间，还要看桥接复制、序列化、图片解码、线程切换和 UI 刷新。如果 profiling 只发生在原生 runtime 内部，团队会低估端到端延迟。
+
+## 13.13 权限和隐私差异
+
+iOS 和 Android 的权限、文件访问和后台限制差异很大。跨平台共享层不能直接假设“有权限”或“无权限”，而应处理平台返回的明确状态：
+
+| 状态 | 含义 | UI 策略 |
+| --- | --- | --- |
+| `not_determined` | 尚未请求 | 展示功能价值后请求 |
+| `granted` | 已授权 | 正常执行 |
+| `limited` | 部分授权 | 展示可处理范围 |
+| `denied` | 用户拒绝 | 提供设置入口或降级 |
+| `restricted` | 系统或组织限制 | 说明不可用原因 |
+
+相册、麦克风、文件和通知权限都可能影响端侧 AI。企业管理设备还可能通过策略禁用模型下载、云端上传或本地索引。共享层应把这些限制当成正常状态，而不是异常。
+
+隐私文案也要按平台适配。系统权限弹窗文案、设置页说明、功能入口说明要保持一致语义，但不一定逐字相同。跨平台统一的是用户理解，而不是字符串完全一致。
+
+## 13.14 多端配置治理
+
+跨平台端侧 AI 通常需要远程配置控制模型版本、功能开关、灰度比例和降级策略。配置治理要避免一个平台误用另一个平台的配置。
+
+建议配置结构包含平台维度：
+
+```json
+{
+  "feature": "local_screenshot_assistant",
+  "ios": {
+    "enabled": true,
+    "model_bundle": "screenshot-ios-v3",
+    "min_app_version": "6.2.0"
+  },
+  "android": {
+    "enabled": false,
+    "fallback": "cloud_only",
+    "reason": "runtime_not_ready"
+  }
+}
+```
+
+配置变更要有审计记录：谁改了、改了什么、影响哪些版本、回滚方式是什么。端侧模型和云端 API 不同，坏配置可能在用户设备上形成持久状态。配置平台必须支持快速关闭、分平台回滚和按版本冻结。
+
+## 13.15 跨平台代码审查关注点
+
+跨平台端侧 AI 的代码审查应特别关注：
+
+- 是否把大图片或音频穿过 JS/Dart bridge。
+- 是否在 UI 线程做预处理或后处理。
+- 是否把平台错误字符串直接暴露给共享层。
+- 是否缺少取消和资源释放。
+- 是否缺少权限撤销处理。
+- 是否假设两个平台模型版本一致。
+- 是否缺少低端设备降级。
+- 是否把原始输入写入跨平台日志。
+
+这些问题在单平台开发中也会出现，但跨平台项目更隐蔽。因为共享层看起来很干净，真正的性能和隐私问题可能藏在平台实现里。代码审查要同时看共享接口和原生实现，不能只看 Dart、JS 或 Kotlin common 代码。
+
 ## 本章小结
 
 跨平台不是抹平平台差异，而是把差异放到明确边界内管理。端侧 AI 的共享层应关注任务协议、状态机、错误模型和测试样本，平台层应负责 runtime、权限、硬件加速和资源管理。只有能力查询、错误模型、评测矩阵和灰度策略都设计好，跨平台端侧 AI 才能稳定发布。
