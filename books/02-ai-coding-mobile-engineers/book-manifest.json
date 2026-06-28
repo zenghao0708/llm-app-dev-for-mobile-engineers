@@ -167,6 +167,24 @@
       "type": "back-matter",
       "title": "附录 C 资料来源与事实核验",
       "path": "books/02-ai-coding-mobile-engineers/back-matter/appendix-c-references.md"
+    },
+    {
+      "id": "appendix-d-exercises-roadmap",
+      "type": "back-matter",
+      "title": "附录 D 读者练习与能力路线图",
+      "path": "books/02-ai-coding-mobile-engineers/back-matter/appendix-d-exercises-roadmap.md"
+    },
+    {
+      "id": "appendix-e-companion-project",
+      "type": "back-matter",
+      "title": "附录 E 配套示例工程说明",
+      "path": "books/02-ai-coding-mobile-engineers/back-matter/appendix-e-companion-project.md"
+    },
+    {
+      "id": "appendix-f-release-review-checklist",
+      "type": "back-matter",
+      "title": "附录 F 发版前审稿与质量检查清单",
+      "path": "books/02-ai-coding-mobile-engineers/back-matter/appendix-f-release-review-checklist.md"
     }
   ]
 }

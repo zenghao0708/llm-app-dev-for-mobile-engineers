@@ -60,6 +60,13 @@ jobs:
           PYTHONWARNINGS: error
         run: python3 -m unittest discover -s tests
 
+      - name: Run AI coding refactor example tests
+        working-directory: examples/ai-coding-mobile-refactor
+        env:
+          PYTHONPATH: src
+          PYTHONWARNINGS: error
+        run: python3 -m unittest discover -s tests
+
       - name: Compile Python examples
         working-directory: examples/mobile-knowledge-assistant
         run: |
@@ -79,6 +86,10 @@ jobs:
             scripts/weekly_report_workflow.py \
             scripts/sse_client.py \
             scripts/rag_trace.py
+
+      - name: Compile AI coding refactor example
+        working-directory: examples/ai-coding-mobile-refactor
+        run: python3 -m py_compile src/ai_refactor/*.py
 
       - name: Compile book build tooling
         run: python3 -m py_compile tools/build_book.py tools/build_epub.py tools/manage_chapters.py

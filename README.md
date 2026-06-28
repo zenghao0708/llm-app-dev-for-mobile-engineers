@@ -10,7 +10,7 @@
 - 当前书稿：约 18.6 万字符，其中章节正文约 16.6 万字符；第 1、2、3、4、5、6、7、8、9、10、11、12、13、14、15、16 章已按样章标准重点扩写，附录 A-E 已补齐。终审阶段需要压缩重复段落，使正式出版稿回到目标篇幅。
 - 配套工程：`examples/mobile-knowledge-assistant/` 已包含可运行的 Python 服务端、开发环境检查、提示词契约检查、结构化输出与工具调用、RAG 检索、RAG 评测、答案质量评测、成本、性能与稳定性报表、多模态截图 payload、只读文件分析 Agent、周报工作流、SSE 流式输出、取消请求、RAG Trace 和自动化测试。
 - 发布计划：见 `GITHUB_PUBLICATION_PLAN.md`。
-- 三部曲第二册《AI Coding 编程专家》已建立书稿骨架，见 `books/02-ai-coding-mobile-engineers/`。
+- 三部曲第二册《AI Coding 编程专家》已扩写为接近 10 万字的完整初稿，见 `books/02-ai-coding-mobile-engineers/`；配套示例工程见 `examples/ai-coding-mobile-refactor/`。
 
 ## 目录
 
@@ -23,6 +23,8 @@ manuscript/
 examples/
   mobile-knowledge-assistant/
                          可运行的移动端知识助手服务端示例
+  ai-coding-mobile-refactor/
+                         第二册配套 AI coding 重构训练示例
 books/
   02-ai-coding-mobile-engineers/
                          第二册：面向移动端工程师的 AI coding 进阶书稿
@@ -58,6 +60,14 @@ python3 tools/build_book.py \
 python3 tools/build_epub.py \
   --manifest books/02-ai-coding-mobile-engineers/book-manifest.json \
   --output build/ebooks/ai-coding-mobile-engineers.epub
+```
+
+运行第二册配套示例工程测试：
+
+```bash
+cd examples/ai-coding-mobile-refactor
+PYTHONPATH=src python3 -m unittest discover -s tests
+python3 -m py_compile src/ai_refactor/*.py
 ```
 
 ## 章节维护
