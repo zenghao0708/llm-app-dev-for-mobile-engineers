@@ -7,6 +7,7 @@ import mimetypes
 import os
 import re
 import shutil
+import subprocess
 import tempfile
 import uuid
 import zipfile
@@ -51,6 +52,7 @@ class Asset:
     source: Path
     href: str
     media_type: str
+    rasterized_from_svg: bool = False
 
 
 class EpubBuilder:
@@ -62,6 +64,7 @@ class EpubBuilder:
         self.source_to_href = {item.source_path.resolve(): item.href for item in self.items}
         self.headings_by_item: dict[str, list[Heading]] = {}
         self.book_uuid = f"urn:uuid:{uuid.uuid5(uuid.NAMESPACE_URL, self.manifest['title'])}"
+        self.svg_renderer = find_svg_renderer()
 
     def build(self) -> dict[str, int | str]:
         self.output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -79,6 +82,7 @@ class EpubBuilder:
             "output": str(self.output_path),
             "sources": len(self.items),
             "assets": len(self.assets),
+            "rasterized_svg": sum(1 for asset in self.assets.values() if asset.rasterized_from_svg),
         }
 
     def _load_items(self) -> list[SourceItem]:
@@ -173,9 +177,19 @@ class EpubBuilder:
         relative = source_path.relative_to(ROOT).as_posix()
         href = f"assets/{relative}"
         media_type = mimetypes.guess_type(source_path.name)[0] or "application/octet-stream"
-        if source_path.suffix.lower() == ".svg":
+        rasterized_from_svg = False
+        if source_path.suffix.lower() == ".svg" and self.svg_renderer:
+            href = f"assets/{Path(relative).with_suffix('.png').as_posix()}"
+            media_type = "image/png"
+            rasterized_from_svg = True
+        elif source_path.suffix.lower() == ".svg":
             media_type = "image/svg+xml"
-        asset = Asset(source=source_path, href=href, media_type=media_type)
+        asset = Asset(
+            source=source_path,
+            href=href,
+            media_type=media_type,
+            rasterized_from_svg=rasterized_from_svg,
+        )
         self.assets[source_path] = asset
         return asset
 
@@ -183,7 +197,10 @@ class EpubBuilder:
         for asset in self.assets.values():
             output = stage / "EPUB" / asset.href
             output.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(asset.source, output)
+            if asset.rasterized_from_svg:
+                render_svg_to_png(asset.source, output, self.svg_renderer)
+            else:
+                shutil.copyfile(asset.source, output)
 
     def _write_nav(self, stage: Path) -> None:
         nav_items = []
@@ -496,6 +513,29 @@ def render_ncx_point(point_id: str, play_order: int, title: str, href: str) -> s
     )
 
 
+def find_svg_renderer() -> str | None:
+    for command in ("rsvg-convert", "inkscape", "magick", "sips"):
+        if shutil.which(command):
+            return command
+    return None
+
+
+def render_svg_to_png(source: Path, output: Path, renderer: str | None) -> None:
+    if renderer is None:
+        raise RuntimeError("No SVG renderer available")
+    if renderer == "rsvg-convert":
+        command = [renderer, "-o", str(output), str(source)]
+    elif renderer == "inkscape":
+        command = [renderer, str(source), "--export-type=png", f"--export-filename={output}"]
+    elif renderer == "magick":
+        command = [renderer, str(source), str(output)]
+    elif renderer == "sips":
+        command = [renderer, "-s", "format", "png", str(source), "--out", str(output)]
+    else:
+        raise RuntimeError(f"Unsupported SVG renderer: {renderer}")
+    subprocess.run(command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+
 CONTAINER_XML = """<?xml version="1.0" encoding="UTF-8"?>
 <container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
   <rootfiles>
@@ -638,6 +678,7 @@ def main() -> None:
     print(f"built {result['output']}")
     print(f"sources {result['sources']}")
     print(f"assets {result['assets']}")
+    print(f"rasterized_svg {result['rasterized_svg']}")
 
 
 if __name__ == "__main__":

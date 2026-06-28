@@ -42,7 +42,7 @@ python3 -m unittest discover -s tests
 python3 tools/build_epub.py
 ```
 
-输出文件为 `build/ebooks/llm-app-dev-for-mobile-engineers.epub`。EPUB 产物包含阅读器目录、章节 XHTML 拆分、标题锚点和 SVG 图表资源，适合在 Apple Books、Calibre、Thorium Reader 等阅读器中做笔记、高亮和跳转。
+输出文件为 `build/ebooks/llm-app-dev-for-mobile-engineers.epub`。EPUB 产物包含阅读器目录、章节 XHTML 拆分、标题锚点和高清 PNG 图表资源，适合在 Apple Books、Calibre、Thorium Reader 等阅读器中做笔记、高亮和跳转。构建脚本会优先把 SVG 图表栅格化为 PNG，避免部分阅读器无法渲染 SVG 中文字体。
 
 ## 章节维护
 

@@ -19,8 +19,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install XML validator
-        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+      - name: Install XML and SVG tools
+        run: sudo apt-get update && sudo apt-get install -y libxml2-utils librsvg2-bin
 
       - name: Validate book manifest
         run: python3 tools/manage_chapters.py validate
